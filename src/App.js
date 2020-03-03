@@ -6,6 +6,7 @@ import Favorites from './Favorites.js';
 import About from './About.js';
 import AddResidency from './AddResidency.js';
 import EditResidency from './EditResidency.js';
+import AddResidencyBroken from './AddResidencyBroken.js';
 import MainNav from './MainNav.js';
 
 
@@ -36,6 +37,7 @@ export default class App extends Component {
           <Route exact path='/about' component={About}></Route>
           <Route exact path='/create' component={AddResidency}></Route>
           <Route exact path='/edit' component={EditResidency}></Route>
+          <Route exact path='/edit/:id' component={EditResidency}></Route>
           <Route path='/' component={Home}></Route>
         </Switch>
       </div>

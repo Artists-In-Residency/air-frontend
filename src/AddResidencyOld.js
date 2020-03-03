@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import request from 'superagent'
 
-export default class EditResidency extends Component {
+export default class AddResidency extends Component {
     state = {
         program_name: '',
         address: '',
@@ -17,10 +17,10 @@ export default class EditResidency extends Component {
         is_grant: false
     }
 
-    handleEditResidency = async (e) => {
+    handleAddResidency = async (e) => {
         e.preventDefault();
-        const URL=`${process.env.REACT_APP_DB_URL}/users/listings/${this.params.id}`;
-        const editedResidency = {
+        const URL=`${process.env.REACT_APP_DB_URL}/users/listings`;
+        const newResidency = {
             program_name: this.state.program_name,
             address: this.state.address,
             city: this.state.city,
@@ -34,30 +34,16 @@ export default class EditResidency extends Component {
             description: this.state.description,
             is_grant: false
         }
-        console.log('Editing: ', URL, editedResidency);
-        const result = await request.put(URL, editedResidency);
+        console.log('Adding: ', URL, newResidency);
+        const result = await request.post(URL, newResidency);
         console.log('Result: ', result);
         // window.location = ('/');
     }
 
-    componentDidMount = async () => {
-        this.getFavorites();
-    }
-    
-    getResidency = async () => {
-        const URL = `${process.env.REACT_APP_DB_URL}/listings/${this.params.id}`;
-        console.log('Requesting favorites from', URL);
-        const result = await request.get(URL);
-        this.setState({ data: result.body });
-        this.setState({ shortData: result.body.slice(0, 3) });
-    }
-
-
     render() {
         return (
-            <form onSubmit={this.handleEditResidency}>
+            <form onSubmit={this.handleAddResidency}>
             <div className='add-residency-container'>
-                <p>This doesn't work yet. :)</p>
                 <label>Program Name
                     <input onChange={(e) => this.setState({ program_name: e.target.value })} value={this.state.program_name} />
                 </label>
@@ -90,7 +76,7 @@ export default class EditResidency extends Component {
                     <input type='radio' onChange={(e) => this.setState({ is_grant: e.target.value })} value="No" checked={this.state.is_grant === 'No'} />No
                 </label>
             </div>
-            <button onClick={(e) => this.handleAddResidency}>Edit Residency</button>
+            <button onClick={(e) => this.handleAddResidency}>Add Residency</button>
             </form>
         )
     }
