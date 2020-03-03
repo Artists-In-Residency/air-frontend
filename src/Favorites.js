@@ -4,31 +4,36 @@ import ResidencyCard from './ResidencyCard';
 
 export default class Favorites extends Component {
     state = {
-        data: [ {program_name: "A Blade of Grass Fellowship",
-        address: "81 Prospect Street",
-        city: "Brooklyn",
-        state: "NY",
-        zip_code: 11201,
-        country: "USA",
-        continent: "North America",
-        phone_num: "6469450860",
-        email: "info@abladeofgrass.org",
-        art_medium: "ANY",
-        img_url: "http://www.abladeofgrass.org/wp-content/themes/abog/inc-img/logo.svg",
-        link_url: "http://www.abladeofgrass.org/fellowship-program/#how-to-apply",
-        description: "social change/better future focused, comes with $20k",
-        is_grant: true} ]
+        data: [],
+        shortData: [],
+        hardData: [{
+            program_name: "A Blade of Grass Fellowship",
+            address: "81 Prospect Street",
+            city: "Brooklyn",
+            state: "NY",
+            zip_code: 11201,
+            country: "USA",
+            continent: "North America",
+            phone_num: "6469450860",
+            email: "info@abladeofgrass.org",
+            art_medium: "ANY",
+            img_url: "http://www.abladeofgrass.org/wp-content/themes/abog/inc-img/logo.svg",
+            link_url: "http://www.abladeofgrass.org/fellowship-program/#how-to-apply",
+            description: "social change/better future focused, comes with $20k",
+            is_grant: true
+        }]
     }
     
     componentDidMount = async () => {
-        // Enable when back-end is up.
-        // this.getFavorites();
+        this.getFavorites();
     }
     
     getFavorites = async () => {
-        const URL = `${process.env.REACT_APP_DB_URL}/me/favorites`;
+        const URL = `${process.env.REACT_APP_DB_URL}/listings`;
+        console.log('Requesting favorites from', URL);
         const result = await request.get(URL);
         this.setState({ data: result.body });
+        this.setState({ shortData: result.body.slice(0, 3) });
     }
 
     handleFavorite = async (passedItem) => {
@@ -74,7 +79,7 @@ export default class Favorites extends Component {
             <div>
                 <h3>Favorites</h3>
                 <ul>
-                    {this.state.data.map(item => <ResidencyCard item={item} key={item.id} />)}
+                    {this.state.shortData.map(item => <ResidencyCard item={item} key={item.id} />)}
                 </ul>
             </div>
         )
