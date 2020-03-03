@@ -48,6 +48,16 @@ label input {
   margin: 0 auto;
 }
 
+.add-residency-container {
+  max-width: 450px;
+  margin: 0 auto;
+}
+
+.add-residency-container label {
+  max-width: 450px;
+}
+
+
 .signin-container,
 .logout-container {
   margin-top: 40px;
