@@ -48,12 +48,16 @@ label input {
   margin: 0 auto;
 }
 
-.add-residency-container {
+.add-residency-container,
+.edit-residency-container
+{
   max-width: 450px;
   margin: 0 auto;
 }
 
-.add-residency-container label {
+.add-residency-container label,
+.edit-residency-container label
+{
   max-width: 450px;
 }
 

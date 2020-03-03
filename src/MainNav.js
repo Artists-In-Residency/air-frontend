@@ -8,7 +8,7 @@ export default class MainNav extends Component {
                 <nav>
                     <Link to='/'>Residencies</Link>
                     <Link to='/favorites'>Favorites</Link>
-                    <Link to='/create'>Post a Residency</Link>
+                    <Link to='/create'>Add a Residency</Link>
                     <Link to='/edit'>Edit a Residency</Link>
                     <Link to='/about'>About</Link>
                     <Link to='/login'>Login</Link>

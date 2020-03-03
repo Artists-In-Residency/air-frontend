@@ -53,7 +53,7 @@ export default class ResidencyForm extends Component {
                     <input type='radio' onChange={(e) => this.setState({ is_grant: e.target.value })} value="No" checked={this.state.is_grant === 'No'} />No
                 </label>
             </div>
-            <button>Add/Edit Residency</button>
+            <button>Submit</button>
             </form>
         )
     }
