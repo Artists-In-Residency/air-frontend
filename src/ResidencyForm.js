@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 export default class ResidencyForm extends Component {
+
     state = {
             program_name: this.props.program_name,
             address: this.props.address,
@@ -15,9 +16,8 @@ export default class ResidencyForm extends Component {
             description: this.props.description,
             is_grant: false
     }
-
+    
     render() {     
-
         return (
             <form onSubmit={this.props.handleFormSubmit(this.state)}>
             <div className='form-container'>
