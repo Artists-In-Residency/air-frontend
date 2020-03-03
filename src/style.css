@@ -1,3 +1,23 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #282c34;
+  /* min-height: 100vh; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+
 body {
   text-align: center;
   margin: 0 auto;
@@ -48,9 +68,27 @@ label input {
   margin: 0 auto;
 }
 
+.add-residency-container,
+.edit-residency-container
+{
+  max-width: 450px;
+  margin: 0 auto;
+}
+
+.add-residency-container label,
+.edit-residency-container label
+{
+  max-width: 450px;
+}
+
+
 .signin-container,
 .logout-container {
   margin-top: 40px;
   padding-top: 30px;
   border-top: 1px solid black;
+}
+
+#maps {
+  height: 100%;
 }
