@@ -28,6 +28,7 @@ class SimpleMap extends Component {
               lng={-122.6830733}
               text="Alchemy"
           />
+  
         </GoogleMapReact>
       </div>
 
@@ -35,7 +36,6 @@ class SimpleMap extends Component {
     );
   }
 }
-
 export default SimpleMap;
 
 // maybe for the map / on api load
