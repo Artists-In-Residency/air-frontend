@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
 // import DetailTest from 'DetailTest.js';
 
-const DetailTest = ({ text }) => <div>{text}</div>;
+const DetailTest = ({ text }) => <div><img alt="thing" src = "http://www.placekitten.com/50/50"/>{text}</div>;
 
 class SimpleMap extends Component {
   static defaultProps = {
@@ -14,12 +14,12 @@ class SimpleMap extends Component {
   };
 
   render() {
-    console.log(process.env.GOOGLE_MAPS_API_KEY);
+    // console.log(process.env.GOOGLE_MAPS_API_KEY);
     return (
       // Important! Always set the container height explicitly
       <div style={{ height: '66vh', width: '66%' }}>
         <GoogleMapReact
-          bootstrapURLKeys={{ key: `${process.env.GOOGLE_MAPS_API_KEY}` }}
+          bootstrapURLKeys={{ key: `${process.env.REACT_APP_GOOGLE_MAPS_API}` }}
           defaultCenter={this.props.center}
           defaultZoom={this.props.zoom}
         >
