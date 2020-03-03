@@ -4,7 +4,20 @@ import ResidencyCard from './ResidencyCard';
 
 export default class Favorites extends Component {
     state = {
-        data: [],
+        data: [ {program_name: "A Blade of Grass Fellowship",
+        address: "81 Prospect Street",
+        city: "Brooklyn",
+        state: "NY",
+        zip_code: 11201,
+        country: "USA",
+        continent: "North America",
+        phone_num: "6469450860",
+        email: "info@abladeofgrass.org",
+        art_medium: "ANY",
+        img_url: "http://www.abladeofgrass.org/wp-content/themes/abog/inc-img/logo.svg",
+        link_url: "http://www.abladeofgrass.org/fellowship-program/#how-to-apply",
+        description: "social change/better future focused, comes with $20k",
+        is_grant: true} ]
     }
     
     componentDidMount = async () => {
