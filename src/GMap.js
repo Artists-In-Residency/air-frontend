@@ -1,13 +1,6 @@
 import React, { Component } from 'react'
-import { GoogleMap, withScriptjs, withGoogleMap, Marker, InfoWindow } from "react-google-maps";
-import request from 'superagent';
-import { getAllResidencies } from './api';
-import { WrappedMap } from './GMap2.js';
-
+import { WrappedMap } from './GMapRender.js';
 import * as resListings from "./data.json";
-
-
-console.log(Number(resListings.default[0].lat))
 
 export default class GMap extends Component {
 
