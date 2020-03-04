@@ -22,7 +22,7 @@ export default class Home extends Component {
             <div>
                 <Search />
                 <Map />
-                <ul class='residency-list'>
+                <ul className='residency-list'>
                     {this.state.shortData.map(item => <ResidencyCard item={item} key={item.id} />)}
                 </ul>
             </div>

@@ -5,7 +5,7 @@ export default class ResidencyCard extends Component {
     render() {
         return (
             <li className='residency-card'>
-                <div class='image-container'>
+                <div className='image-container'>
                     <img src={this.props.item.img_url} alt='pic' />
                 </div>
                 <h3>{this.props.item.program_name}</h3>
@@ -21,7 +21,7 @@ export default class ResidencyCard extends Component {
                     {this.props.item.phone}
                     {this.props.item.email}
                 </div>
-                <div class="grant-container">
+                <div className="grant-container">
                     <p>{this.props.item.is_grant}</p>
                 </div>
                 <p><a href={this.props.item.link_url}>Check it out</a></p>

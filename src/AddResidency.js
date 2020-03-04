@@ -23,10 +23,12 @@ export default class AddResidency extends Component {
     // Form component passes back state. Function also needs event. So we need a function to eat a function.
     handleAddResidency = (residency) => async (e) => {
         e.preventDefault();
-        const URL=`${process.env.REACT_APP_DB_AUTH_URL}/users/listings`;        
+        const URL=`${process.env.REACT_APP_DB_URL}/api/me/listings`;        
         console.log('Adding via URL: ', URL);
-        console.log('Adding: ', residency);
-        const result = await request.post(URL, residency);
+        console.log('Posting: ', residency);
+        const result = await request
+            .post(URL, residency)
+            .set('Authorization', this.props.user.token);
         console.log('Post results:', result.body);
         // window.location = ('/');
     }

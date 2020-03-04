@@ -40,7 +40,7 @@ export default class ResidencyForm extends Component {
                     <input onChange={(e) => this.setState({ state: e.target.value })} value={this.state.state} />
                 </label>
                 <label>Zip
-                    <input onChange={(e) => this.setState({ zip: e.target.value })} value={this.state.zip} />
+                    <input type='number' onChange={(e) => this.setState({ zip: Number(e.target.value) })} value={this.state.zip} />
                 </label>
                 <label>Art medium
                     <input onChange={(e) => this.setState({ art_medium: e.target.value })} value={this.state.art_medium} />
@@ -48,10 +48,10 @@ export default class ResidencyForm extends Component {
                 <label>Image
                     <input onChange={(e) => this.setState({ img_url: e.target.value })} value={this.state.img_url} />
                 </label>
-                <label>Is this a grant?
+                {/* <label>Is this a grant?
                     <input type='radio' onChange={(e) => this.setState({ is_grant: e.target.value })} value="Yes" checked={this.state.is_grant === 'Yes'} />Yes
                     <input type='radio' onChange={(e) => this.setState({ is_grant: e.target.value })} value="No" checked={this.state.is_grant === 'No'} />No
-                </label>
+                </label> */}
             </div>
             <button>Submit</button>
             </form>
