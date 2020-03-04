@@ -1,25 +1,34 @@
 import React, { Component } from 'react';
 import { Switch, Route, Link, BrowserRouter } from 'react-router-dom';
+import PrivateRoute from './PrivateRoute.js';
+import Header from './Header.js';
 import Home from './Home.js';
 import Login from './Login.js';
 import Favorites from './Favorites.js';
 import About from './About.js';
 import AddResidency from './AddResidency.js';
 import EditResidency from './EditResidency.js';
-import MainNav from './MainNav.js';
 import GMap from './GMap.js';
 import ResDetail from './ResDetail.js';
 
 // import './bootstrap-reboot.min.css';
 import './App.css';
 import './style.css';
+import { getUser } from './api.js';
 
 export default class App extends Component {
-  state = {
-    data: [],
-    userName: '', 
-    userToken: '',
-    userId: '',
+state = {
+    user: null
+}
+
+setUser = (userFromLogin) => {
+  localStorage.setItem('user', JSON.stringify(userFromLogin));
+  this.setState({ user: userFromLogin });
+}
+
+componentDidMount = () => {
+  const userFromLocalStorage = getUser();
+  this.setState({ user: userFromLocalStorage });
 }
 
   render() {
@@ -27,20 +36,17 @@ export default class App extends Component {
   return (
     <BrowserRouter>
       <div className="App">
-        <header className="App-header">
-          <Link to='/'><h1>Artist Residencies Listings</h1></Link>
-          <MainNav></MainNav>
-        </header>
+        <Header user={this.state.user} />
         <Switch>
-          <Route exact path='/login' component={Login}></Route>
-          <Route exact path='/favorites' component={Favorites}></Route>
-          <Route exact path='/about' component={About}></Route>
-          <Route exact path='/add' component={AddResidency}></Route>
-          <Route exact path='/create' component={AddResidency}></Route>
-          <Route exact path='/edit/:id' component={EditResidency}></Route>
-          <Route exact path='/map' component={GMap}></Route>
+          <PrivateRoute exact path="/favoritesbeta" component={Favorites} user={this.state.user} />
+          <PrivateRoute exact path='/add' component={AddResidency} user={this.state.user} />
+          <PrivateRoute exact path='/edit/:id' component={EditResidency} user={this.state.user} />
+          <Route exact path='/login' render={(props) => <Login {...props} setUser={ this.setUser } user={this.state.user } />} />
+          <Route exact path='/favorites' component={Favorites} />
+          <Route exact path='/about' component={About} />
+          <Route exact path='/map' component={GMap} />
           <Route exact path="/listings/:residencyId" component={ResDetail} />
-          <Route path='/' component={Home}></Route>
+          <Route path='/' component={Home} />
         </Switch>
       </div>
     </BrowserRouter>
