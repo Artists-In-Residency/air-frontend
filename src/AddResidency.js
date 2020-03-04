@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import request from 'superagent'
-import { getUser } from './api.js'
 import ResidencyForm from './ResidencyForm'
 
 export default class AddResidency extends Component {
@@ -27,10 +26,9 @@ export default class AddResidency extends Component {
         const URL=`${process.env.REACT_APP_DB_URL}/api/me/listings`;        
         console.log('Adding via URL: ', URL);
         console.log('Posting: ', residency);
-
-        const user = getUser();
-
-        const result = await request.post(URL, residency).set('Authorization', user.token);
+        const result = await request
+            .post(URL, residency)
+            .set('Authorization', this.props.user.token);
         console.log('Post results:', result.body);
         // window.location = ('/');
     }

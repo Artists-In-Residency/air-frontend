@@ -8,17 +8,19 @@ import Favorites from './Favorites.js';
 import About from './About.js';
 import AddResidency from './AddResidency.js';
 import EditResidency from './EditResidency.js';
+import ResidencyTable from './ResidencyTable.js';
+import UserTable from './UserTable.js';
 import GMap from './GMap.js';
 import ResDetail from './ResDetail.js';
 
-// import './bootstrap-reboot.min.css';
+import './bootstrap-reboot.min.css';
 import './App.css';
 import './style.css';
-import { getUser } from './api.js';
+import { getUserLogin } from './api.js';
 
 export default class App extends Component {
 state = {
-    user: null,
+    user: [],
     username: ''
 }
 
@@ -26,14 +28,14 @@ state = {
 setUser = (userFromLogin) => {
   localStorage.setItem('user', JSON.stringify(userFromLogin));
   this.setState({ user: userFromLogin });
-  this.setState({ username: userFromLogin.displayName });
 }
 
 // Put user into state from localStorage on refresh
 componentDidMount = () => {
-  const userFromLocalStorage = getUser();
-  this.setState({ user: userFromLocalStorage });
-  this.setState({ username: userFromLocalStorage.displayName });
+  const userFromLocalStorage = getUserLogin();
+  if (userFromLocalStorage) {
+    this.setState({ user: userFromLocalStorage });
+  }
 }
 
   render() {
@@ -51,6 +53,8 @@ componentDidMount = () => {
           <Route exact path='/about' component={About} />
           <Route exact path='/map' component={GMap} />
           <Route exact path="/listings/:residencyId" component={ResDetail} />
+          <Route exact path="/admin/listings" component={ResidencyTable} />
+          <Route exact path="/admin/users" component={UserTable} />
           <Route path='/' component={Home} />
         </Switch>
       </div>
