@@ -5,7 +5,7 @@ import ResidencyForm from './ResidencyForm'
 export default class AddResidency extends Component {
     state = {
         newResidency : {
-            program_name: 'test',
+            program_name: '',
             address: '',
             city: '',
             state: '',

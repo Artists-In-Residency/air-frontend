@@ -1,22 +1,31 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import './residency-card.css';
 
 export default class ResidencyCard extends Component {
     render() {
         return (
-            <li>
-                Individual Residency Listing
-                <p><strong>{this.props.item.program_name}</strong><li>{this.props.item.address}</li> 
-                <li>{this.props.item.city}</li>
-                <li>{this.props.item.state}</li> 
-                <li>{this.props.item.zip_code}</li>
-                <li>{this.props.item.phone}</li> 
-                <li>{this.props.item.email}</li>
-                <li>{this.props.item.art_medium}</li> 
-                <li><img src={this.props.item.img_url} alt='pic'/></li> 
-                <li><a href={this.props.item.link_url}>Check it out</a></li>
-                <li>{this.props.item.is_grant}</li>
-                <li>{this.props.item.description}</li>
-                <button onClick={() => this.props.handleFavorite(this.props.item)}>MAKE FAVORITE</button></p> 
+            <li className='residency-card'>
+                <div class='image-container'>
+                    <img src={this.props.item.img_url} alt='pic' />
+                </div>
+                <h3>{this.props.item.program_name}</h3>
+                <p>{this.props.item.description}</p>
+                <p>Mediums: {this.props.item.art_medium}</p> 
+                <div className='address-container'>
+                    <h4>Address</h4>
+                    {this.props.item.address}<br />
+                    {this.props.item.city}, {this.props.item.state} {this.props.item.zip_code}
+                </div>
+                <div className='contact-container'>
+                    <h4>Contact Info</h4>
+                    {this.props.item.phone}
+                    {this.props.item.email}
+                </div>
+                <div class="grant-container">
+                    <p>{this.props.item.is_grant}</p>
+                </div>
+                <p><a href={this.props.item.link_url}>Check it out</a></p>
+                <button onClick={() => this.props.handleFavorite(this.props.item)}>MAKE FAVORITE</button> 
             </li>
         )
     }

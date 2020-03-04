@@ -35,6 +35,7 @@ export default class App extends Component {
           <Route exact path='/login' component={Login}></Route>
           <Route exact path='/favorites' component={Favorites}></Route>
           <Route exact path='/about' component={About}></Route>
+          <Route exact path='/add' component={AddResidency}></Route>
           <Route exact path='/create' component={AddResidency}></Route>
           <Route exact path='/edit/:id' component={EditResidency}></Route>
           <Route exact path='/map' component={GMap}></Route>

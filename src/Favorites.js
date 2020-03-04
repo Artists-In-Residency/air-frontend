@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import request from 'superagent';
 import ResidencyCard from './ResidencyCard';
+import { getFavorites } from './api';
 
 export default class Favorites extends Component {
     state = {
@@ -24,16 +25,12 @@ export default class Favorites extends Component {
         }]
     }
     
-    componentDidMount = async () => {
-        this.getFavorites();
-    }
-    
-    getFavorites = async () => {
-        const URL = `${process.env.REACT_APP_DB_URL}/listings`;
-        console.log('Requesting favorites from', URL);
-        const result = await request.get(URL);
-        this.setState({ data: result.body });
-        this.setState({ shortData: result.body.slice(0, 3) });
+        
+    async componentDidMount() {
+        // const result = await this.getFavoritesLocal();
+        const result = await getFavorites();
+        this.setState({ data: result });
+        this.setState({ shortData: result.slice(0, 3) });    
     }
 
     handleFavorite = async (passedItem) => {
@@ -78,9 +75,11 @@ export default class Favorites extends Component {
         return (
             <div>
                 <h3>Favorites</h3>
-                <ul>
+                <div className='card-container'>
+                <ul className='residency-list'>
                     {this.state.shortData.map(item => <ResidencyCard item={item} key={item.id} />)}
                 </ul>
+                </div>
             </div>
         )
     }
