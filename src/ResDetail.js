@@ -9,7 +9,7 @@ export default class ResDetail extends Component {
     const resInfo = await request.get(`${process.env.REACT_APP_DB_URL}/listings/${this.props.match.params.residencyId}`);
   
     if (resInfo.body) {
-      this.setState({residencies: resInfo.body[0]})
+      this.setState({residency: resInfo.body[0]})
     }
   } 
   
@@ -20,8 +20,6 @@ export default class ResDetail extends Component {
  
     return (
       <>
-      <h1>I AM THE DETAILS PAGE</h1>
-      <h3>:(</h3>
         {residency.id && <ResidencyCard item={ residency } />}
       </>
     )
