@@ -18,6 +18,7 @@ export default class Login extends Component {
             password: this.state.passwordSignUp,
             display_name: this.state.display_nameSignUp,
         }
+        console.log('Signing up with', newUser);
         const result = await request.post(URL, newUser);
         console.log(result);
         window.location = ('/');

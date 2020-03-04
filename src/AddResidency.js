@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import request from 'superagent'
+import { getUser } from './api.js'
 import ResidencyForm from './ResidencyForm'
 
 export default class AddResidency extends Component {
@@ -23,10 +24,13 @@ export default class AddResidency extends Component {
     // Form component passes back state. Function also needs event. So we need a function to eat a function.
     handleAddResidency = (residency) => async (e) => {
         e.preventDefault();
-        const URL=`${process.env.REACT_APP_DB_AUTH_URL}/users/listings`;        
+        const URL=`${process.env.REACT_APP_DB_URL}/api/me/listings`;        
         console.log('Adding via URL: ', URL);
-        console.log('Adding: ', residency);
-        const result = await request.post(URL, residency);
+        console.log('Posting: ', residency);
+
+        const user = getUser();
+
+        const result = await request.post(URL, residency).set('Authorization', user.token);
         console.log('Post results:', result.body);
         // window.location = ('/');
     }

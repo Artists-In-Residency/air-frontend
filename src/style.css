@@ -30,7 +30,13 @@ header {
 header a {
   margin: 20px;
   color: white;
+  text-decoration: none;
 }
+
+header a:hover {
+  text-decoration: underline;
+}
+
 
 ul {
   margin: 0;
