@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Switch, Route, BrowserRouter } from 'react-router-dom';
+import { Switch, Route, Link, BrowserRouter } from 'react-router-dom';
 import Home from './Home.js';
 import Login from './Login.js';
 import Favorites from './Favorites.js';
@@ -28,7 +28,7 @@ export default class App extends Component {
     <BrowserRouter>
       <div className="App">
         <header className="App-header">
-          <h1>Artist Residencies Listings</h1>
+          <Link to='/'><h1>Artist Residencies Listings</h1></Link>
           <MainNav></MainNav>
         </header>
         <Switch>

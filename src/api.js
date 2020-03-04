@@ -13,3 +13,9 @@ export const getAllResidencies = async () => {
     const result = await request.get(URL);
     return result.body;
 }
+
+export const getUser = () => {
+    console.log('Getting user');
+    const user = JSON.parse(localStorage.getItem('user'));
+    return user;
+}
