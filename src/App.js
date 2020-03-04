@@ -18,17 +18,22 @@ import { getUser } from './api.js';
 
 export default class App extends Component {
 state = {
-    user: null
+    user: null,
+    username: ''
 }
 
+// Put user into state and in persistence on login via callback
 setUser = (userFromLogin) => {
   localStorage.setItem('user', JSON.stringify(userFromLogin));
   this.setState({ user: userFromLogin });
+  this.setState({ username: userFromLogin.displayName });
 }
 
+// Put user into state from localStorage on refresh
 componentDidMount = () => {
   const userFromLocalStorage = getUser();
   this.setState({ user: userFromLocalStorage });
+  this.setState({ username: userFromLocalStorage.displayName });
 }
 
   render() {
@@ -36,7 +41,7 @@ componentDidMount = () => {
   return (
     <BrowserRouter>
       <div className="App">
-        <Header user={this.state.user} />
+        <Header user={this.state.user} username={this.state.username} />
         <Switch>
           <PrivateRoute exact path="/favoritesbeta" component={Favorites} user={this.state.user} />
           <PrivateRoute exact path='/add' component={AddResidency} user={this.state.user} />

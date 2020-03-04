@@ -11,9 +11,10 @@ export default class Header extends Component {
             <header className="App-header">
                 <Link to='/'><h1>Artist Residencies Listings</h1></Link>
                 <MainNav />
-                {/* <div className='welcome'>
-                    Hello {this.props.user.displayName}
-                </div> */}
+                <div className='welcome'>
+                    {/* Hello {this.props.user.displayName} */}
+                    Hello {this.props.username}
+                </div>
             </header>  
         )
     }
