@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import ResidencyCard from './ResidencyCard.js';
+import ResDetailItem from './ResDetailItem.js';
 import request from 'superagent';
 
 export default class ResDetail extends Component {
@@ -19,9 +19,9 @@ export default class ResDetail extends Component {
       const { residency } = this.state;
  
     return (
-      <>
-        {residency.id && <ResidencyCard item={ residency } />}
-      </>
+      <div className='detail-container'>
+        {residency.id && <ResDetailItem item={ residency } />}        
+      </div>
     )
   }
 };
