@@ -40,7 +40,7 @@ export default class ResidencyForm extends Component {
                     <input onChange={(e) => this.setState({ state: e.target.value })} value={this.state.state} />
                 </label>
                 <label>Zip
-                    <input type='number' onChange={(e) => this.setState({ zip: Number(e.target.value) })} value={this.state.zip} />
+                    <input type='number' onChange={(e) => this.setState({ zip_code: Number(e.target.value) })} value={this.state.zip_code} />
                 </label>
                 <label>Art medium
                     <input onChange={(e) => this.setState({ art_medium: e.target.value })} value={this.state.art_medium} />
