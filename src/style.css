@@ -88,3 +88,7 @@ label input {
   padding-top: 30px;
   border-top: 1px solid black;
 }
+
+#maps {
+  height: 100%;
+}
