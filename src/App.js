@@ -8,6 +8,7 @@ import AddResidency from './AddResidency.js';
 import EditResidency from './EditResidency.js';
 import MainNav from './MainNav.js';
 import GMap from './GMap.js';
+import ResDetail from './ResDetail.js';
 
 // import './bootstrap-reboot.min.css';
 import './App.css';
@@ -37,6 +38,7 @@ export default class App extends Component {
           <Route exact path='/create' component={AddResidency}></Route>
           <Route exact path='/edit/:id' component={EditResidency}></Route>
           <Route exact path='/map' component={GMap}></Route>
+          <Route exact path="/listings/:residencyId" component={ResDetail} />
           <Route path='/' component={Home}></Route>
         </Switch>
       </div>
