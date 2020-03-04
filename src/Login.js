@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import request from 'superagent';
-import { setUser } from './api.js';
 
 export default class Login extends Component {
     
@@ -22,7 +21,6 @@ export default class Login extends Component {
         console.log('Signing up with', newUser);
         await request.post(URL, newUser)
         .then((result) => {
-            // console.log(result);
             this.props.setUser(result.body);
             this.props.history.push('/');
         })
@@ -40,7 +38,6 @@ export default class Login extends Component {
         }
         await request.post(URL, existingUser)
             .then((result) => {
-                // console.log(result);
                 this.props.setUser(result.body);
                 this.props.history.push('/');
             })
@@ -58,7 +55,7 @@ export default class Login extends Component {
     
     render() {
         return (
-            <div>
+            <div className='login-container'>
                 <div className='signin-container'>
                 <h2>Log In</h2>
                     <label>Email

@@ -1,3 +1,7 @@
+/* ---------- */
+/* CARD COMPONENT */
+/* ---------- */
+
 .card-container {
     max-width: 90%;
     margin: 0 auto;
@@ -23,4 +27,32 @@
 
 .residency-card img {
     width: 100%;
+}
+
+
+
+/* ---------- */
+/* TABLE COMPONENT */
+/* ---------- */
+
+.residency-table {
+    max-width: 95%;
+    margin: 0 auto;
+    font-size: .7em;
+}
+
+.residency-table th {
+    background-color: #ddd;
+    padding: 2px 5px;
+}
+
+.residency-table td {
+    border: 1px solid #ddd;
+    padding: 2px 5px;
+    max-width: 20%;
+    vertical-align: top;
+}
+
+.residency-table .table-small-col {
+    width: 30px;
 }
