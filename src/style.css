@@ -63,6 +63,18 @@ label input {
   padding: 5px;
 }
 
+.img_url-container {
+  width: 250px;
+  position: relative;
+  left: 200px;
+  border: 1px solid #ddd;
+  padding: 20px;
+}
+
+.img_url-container img {
+  width: 100%;
+}
+
 .login-container {
   text-align: center;
 }
