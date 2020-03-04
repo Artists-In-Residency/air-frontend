@@ -20,6 +20,7 @@ export default class Home extends Component {
     render() {
         return (
             <div>
+                <p>Number of records: {this.state.data.length}</p>
                 <table className='residency-table'>
                     <thead>
                         <tr>
@@ -32,6 +33,7 @@ export default class Home extends Component {
                             <th>Email</th>
                             <th className='table-small-col'>Is a grant</th>
                             <th className='table-small-col'>Edit</th>
+                            <th className='table-small-col'>Delete</th>
                         </tr>                        
                     </thead>
                     <tbody>

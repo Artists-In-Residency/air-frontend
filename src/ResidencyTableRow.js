@@ -1,6 +1,18 @@
 import React, { Component } from 'react';
+import request from 'superagent'
 
 export default class ResidencyTableRow extends Component {
+
+    // Move to API?
+    handleDeleteResidency = (residency) => {
+        const URL=`${process.env.REACT_APP_DB_URL}/users/listings/${residency}`;        
+        console.log('Deleting via URL: ', URL);
+        console.log('COMMENTED OUT - Deleting: ', residency);
+        // const result = await request.delete(URL, residency);
+        // console.log('Delete results:', result.body);
+        // window.location = ('/');
+    }
+
     render() {
         return (
             <tr className='residency-row'>
@@ -16,6 +28,7 @@ export default class ResidencyTableRow extends Component {
                 <td>{this.props.item.email}</td>
                 <td>{this.props.item.is_grant}</td>
                 <td><a href={`/edit/${this.props.item.id}`}>Edit</a></td>
+                <td><a href='#' onClick={() => this.handleDeleteResidency(this.props.item.id)}>Delete</a></td>
             </tr>
         )
     }
