@@ -1,36 +1,13 @@
-import React, { Component, useState } from 'react'
-import { GoogleMap, withScriptjs, withGoogleMap, Marker } from "react-google-maps";
+import React, { Component } from 'react'
+import { GoogleMap, withScriptjs, withGoogleMap, Marker, InfoWindow } from "react-google-maps";
 import request from 'superagent';
 import { getAllResidencies } from './api';
+import { WrappedMap } from './GMap2.js';
 
 import * as resListings from "./data.json";
 
-// const resListings = getAllResidencies();
+
 console.log(Number(resListings.default[0].lat))
-function Map(){
-  return <GoogleMap 
-            defaultZoom={4.5} 
-            defaultCenter={{lat:37.9283459, lng:-94.5794797}} 
-          >
-                {/* <Marker 
-                key={Math.random()}
-                position={{ lat:45.512230, lng:-122.658722
-                }}
-              /> */}
-
-              {/* map through all the residential listings and map 'em out */}
-            {resListings.default.map((res =>
-
-              <Marker 
-                key={Math.random()}
-                position={{ lat:Number(res.lat), lng:Number(res.long) 
-                }}
-              />
-            ))};
-          </GoogleMap>
-}
-
-const WrappedMap = withScriptjs(withGoogleMap(Map));
 
 export default class GMap extends Component {
 
