@@ -88,7 +88,7 @@ label input {
 }
 
 
-.signin-container,
+.signup-container,
 .logout-container {
   margin-top: 40px;
   padding-top: 30px;
@@ -97,4 +97,10 @@ label input {
 
 #maps {
   height: 100%;
+}
+
+.welcome {
+  position: absolute;
+  top: 15px;
+  right: 15px
 }
