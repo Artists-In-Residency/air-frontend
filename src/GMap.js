@@ -1,59 +1,50 @@
-import React, { Component } from 'react';
-import GoogleMapReact from 'google-map-react';
-// import DetailTest from 'DetailTest.js';
+import React, { Component, useState } from 'react'
+import { GoogleMap, withScriptjs, withGoogleMap, Marker } from "react-google-maps";
+import request from 'superagent';
+import { getAllResidencies } from './api';
 
-const DetailTest = ({ text }) => <div><img alt="thing" src = "http://www.placekitten.com/50/50"/>{text}</div>;
+import * as resListings from "./data.json";
 
-class SimpleMap extends Component {
-  static defaultProps = {
-    center: {
-      lat: 45.52,
-      lng: -122.68
-    },
-    zoom: 12
-  };
+// const resListings = getAllResidencies();
+console.log(Number(resListings.default[0].lat))
+function Map(){
+  return <GoogleMap 
+            defaultZoom={4.5} 
+            defaultCenter={{lat:37.9283459, lng:-94.5794797}} 
+          >
+                {/* <Marker 
+                key={Math.random()}
+                position={{ lat:45.512230, lng:-122.658722
+                }}
+              /> */}
+
+              {/* map through all the residential listings and map 'em out */}
+            {resListings.default.map((res =>
+
+              <Marker 
+                key={Math.random()}
+                position={{ lat:Number(res.lat), lng:Number(res.long) 
+                }}
+              />
+            ))};
+          </GoogleMap>
+}
+
+const WrappedMap = withScriptjs(withGoogleMap(Map));
+
+export default class GMap extends Component {
 
   render() {
-    // console.log(process.env.GOOGLE_MAPS_API_KEY);
     return (
-      // Important! Always set the container height explicitly
-      <div style={{ height: '66vh', width: '66%' }}>
-        <GoogleMapReact
-          bootstrapURLKeys={{ key: `${process.env.REACT_APP_GOOGLE_MAPS_API}` }}
-          defaultCenter={this.props.center}
-          defaultZoom={this.props.zoom}
-        >
-          <DetailTest
-              lat={45.5234166}
-              lng={-122.6830733}
-              text="Alchemy"
-          />
-  
-        </GoogleMapReact>
+      <div style={{ width: '100vw', height: '70vh' }} >
+        <WrappedMap 
+          googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${
+          process.env.REACT_APP_GOOGLE_MAPS_API}`}
+          loadingElement={<div style={{ height: "100%" }} />}
+          containerElement={<div style={{ height: "100%" }} />}
+          mapElement={<div style={{ height: "100%" }} />}
+        />
       </div>
-
-      
-    );
+    )
   }
 }
-export default SimpleMap;
-
-// maybe for the map / on api load
-// const handleApiLoaded = (map, maps) => {
-//   // use map and maps objects
-// };
- 
- 
-// <GoogleMapReact
-//   bootstrapURLKeys={{ key: /* YOUR KEY HERE */ }}
-//   defaultCenter={this.props.center}
-//   defaultZoom={this.props.zoom}
-//   yesIWantToUseGoogleMapApiInternals
-//   onGoogleApiLoaded={({ map, maps }) => handleApiLoaded(map, maps)}
-// >
-//   <AnyReactComponent
-//     lat={59.955413}
-//     lng={30.337844}
-//     text="My Marker"
-//   />
-// </GoogleMapReact>
