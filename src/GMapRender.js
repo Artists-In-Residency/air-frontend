@@ -2,6 +2,7 @@ import React from 'react'
 import { GoogleMap, withScriptjs, withGoogleMap, Marker, InfoWindow } from "react-google-maps";
 import request from 'superagent'
 import { getAllResidencies } from './api.js'
+import GMapStyle from './GMapStyle.js'
 
 export default class Map extends React.Component{
  
@@ -25,7 +26,8 @@ export default class Map extends React.Component{
     
         return <GoogleMap 
               defaultZoom={4.5} 
-              defaultCenter={{lat:37.9283459, lng:-94.5794797}} 
+              defaultCenter={{lat:37.9283459, lng:-94.5794797}}
+              defaultOptions={{styles: GMapStyle}} 
             >
                   {/* <Marker 
                   key={Math.random()}
@@ -43,15 +45,24 @@ export default class Map extends React.Component{
                   onClick={() => {
                     this.setSelected(res);
                   }}
+                  // icon={{
+                  //   url: "./pin.png",
+                  //   scaledSize: new window.google.maps.Size(45, 45)
+                  // }}
                 />
-              ))};
+              ))}
   
               {this.state.selected && (
                  <InfoWindow
                     position={{ lat:Number(this.state.selected.lat), lng:Number(this.state.selected.long) }} 
                     onCloseClick={() => {this.setSelected(null);}}
                   >
-                <div style={{background: 'red', height: '200px', width: '200px'}}/>
+                <div style={{background: 'red', height: '100px', width: '100px'}}>
+                  <a href={this.state.selected.link_url}>
+                    <h4>{this.state.selected.program_name}</h4>
+                  </a>
+                    <p>{this.state.selected.description}</p>
+                </div>
                 </InfoWindow>
         
                )}
