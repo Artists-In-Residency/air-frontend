@@ -26,25 +26,25 @@ export default class AddResidency extends Component {
         
         //constructing an address to pass to the geocode api
         const address = (residency.address + '+' + residency.city + '+' + residency.state + '+' + residency.zip_code);
-        //fetch address fro=[][p-0q``           `]
+        //create URL string for fetch route
         const geoURL = `${process.env.REACT_APP_DB_URL}/api/me/geocode?search=${address}`
-
+        //fetch lat / long from geocode api
         const mapResult = await request.get(geoURL)
             .set('Authorization', this.props.user.token);
         
-        const lat = mapResult.body.results[0].geometry.location.lat;
-        const lng = mapResult.body.results[0].geometry.location.lng;
-        residency.lat = lat;
-        residency.long = lng;
-        console.log(residency)
+        //insert new key/value pair into residency object from newly fetched data
+        residency.lat = mapResult.body.results[0].geometry.location.lat;
+        residency.long = mapResult.body.results[0].geometry.location.lng;
+      
+        //create URL string for posting new resident route
         const URL=`${process.env.REACT_APP_DB_URL}/api/me/listings`;        
-        console.log('Adding via URL: ', URL);
-        console.log('Posting: ', residency);
+        //post that newly constructed residency into the database yo! 
         const result = await request
             .post(URL, residency)
             .set('Authorization', this.props.user.token);
-        console.log('Post results:', result.body);
-        // window.location = ('/');
+        //thank the user for their contribution and redirect them back home
+        alert('New Residency Added! Thank You!')
+        window.location = ('/');
     }
 
     render() {
