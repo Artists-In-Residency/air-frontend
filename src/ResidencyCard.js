@@ -20,15 +20,15 @@ export default class ResidencyCard extends Component {
     //stuff to do error handling when an image is 404
     constructor(props) {
         super(props);
-        this.state = { imageStatus: "loading", error: false };
+        this.state = { imageStatus: "", error: false };
       }
     
       handleImageLoaded() {
-        this.setState({ imageStatus: "loaded", error: false });
+        this.setState({ imageStatus: "", error: false });
       }
     
       handleImageError() {
-        this.setState({ imageStatus: "failed to load", error: true });
+        this.setState({ imageStatus: "", error: true });
       }
 
     render() {
