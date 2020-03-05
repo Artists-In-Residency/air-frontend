@@ -23,7 +23,7 @@ export default class ResDetailItem extends Component {
             <div className='residency-detail'>
                 <div className='detail-container'>
                     <div className='image-container'>
-                        <img src={this.state.residency.img_url} alt={this.state.residency.program_name} />
+                        <img className='detail-image' src={this.state.residency.img_url} alt={this.state.residency.program_name} />
                     </div>
                     <h3>{this.state.residency.program_name}</h3>
                     <p>{this.state.residency.description}</p>
@@ -32,18 +32,28 @@ export default class ResDetailItem extends Component {
                         {this.state.residency.art_medium}
                     </div>
                     <div className='detail-section'>
-                        <h4>Address</h4>
-                        {this.state.residency.address}<br />
-                        {this.state.residency.city}, {this.state.residency.state} {this.state.residency.zip_code}
+
+                    {this.state.residency.city && 
+                    <div className='card-section-city-state-country'>
+                        <h4>Location</h4>
+                        {this.state.residency.address}<br></br>
+                        {this.state.residency.city}{this.state.residency.state &&<>, {this.state.residency.state}</>} {this.state.residency.zip_code &&<> {this.state.residency.zip_code}</>}{this.state.residency.country &&<> - {this.state.residency.country}</>} 
+                    </div>
+                }
                     </div>
                     <div className='detail-section'>
                         <h4>Contact Info</h4>
-                        {this.state.residency.phone_num}<br />
-                        {this.state.residency.email}
+                        {this.state.residency.phone_num &&<> {this.state.residency.phone_num}</>} 
+                        <br />
+                        {this.state.residency.email &&<> {this.state.residency.email}</>} 
                     </div>
                     <div className="detail-section">
+                    {this.state.residency.is_grant && 
+                    <div className="card-section-grant">
                         <h4>Grant Funding</h4>
-                        <p>{this.state.residency.is_grant}</p>
+                        <br></br>
+                    </div>
+                }
                     </div>
                     <p><a href={this.state.residency.link_url} target="_blank" rel="noopener noreferrer">Program Website</a></p>
                     <button onClick={() => handleFavorite(this.state.residency, user)}>BOOKMARK</button> 

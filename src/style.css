@@ -13,6 +13,11 @@
   color: #61dafb;
 }
 
+/* mouse over link */
+a:hover {
+  color: hotpink;
+  text-decoration: none;
+}
 
 body {
   text-align: left;
@@ -41,7 +46,7 @@ ul {
 
 ul li {
   list-style-type: none;
-  margin: 200px 0;
+  margin: 20px 0;
 }
 
 li button {

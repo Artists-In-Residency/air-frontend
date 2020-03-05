@@ -11,6 +11,12 @@
     margin: 15px 0;
 }
 
+.residency-detail {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
 .residency-detail h4 {
     margin-bottom: 0;
 }
@@ -40,13 +46,19 @@
     flex-wrap: wrap;
 }
 
+.button {
+    border: 2px dotted #ddd;
+}
+
 .residency-card {
     width: 250px;
     margin: 25px;
     padding: 15px;
-    border: 1px solid #ddd;
+    border: 2px dotted #ddd;
     text-align: left;
+    background-color: rgb(188, 237, 174)
 }
+
 
 .card-section {
     margin: 15px 0;
@@ -84,6 +96,45 @@
     object-fit: cover;
 }
 
+.residency-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+/* 
+.residency-card .card-section-grant {
+    height:8%;
+}
+
+.residency-card .card-section-program-name {
+    height:70px;
+    margin-bottom: 20px;
+}
+
+.residency-card .card-section-description {
+    height:20%;
+    /* margin-top: 20px; */
+/* } */
+
+/* .residency-card .card-section-mediums {
+    height:10%;
+}
+
+.residency-card .card-section-city-state-country {
+    height:10%;
+}
+.residency-card .card-section-website {
+    height:5%;
+}
+
+.residency-card .bookmark-button {
+    height:15%;
+    margin: 5px;
+} */ 
+
+
+
+
 
 
 
@@ -111,4 +162,8 @@
 
 .residency-table .table-small-col {
     width: 30px;
+}
+
+.detail-image {
+    max-width: 500px;
 }

@@ -46,34 +46,37 @@ export default class ResidencyCard extends Component {
                                 {this.state.imageStatus}
                     </a>
                 </div>
-                <h3><a href={`/listings/${this.props.item.id}`}>{this.props.item.program_name}</a></h3>
-                <p>{this.props.item.description}</p>
-                <div className='card-section'>
+               
+                <h3><a href={`/listings/${this.props.item.id}`}><div className='card-section-program-name'>{this.props.item.program_name}</div></a></h3>
+                <div className='card-section-description'>
+                <p>{this.props.item.description}</p></div>
+                <div className='card-section-mediums'>
                     <h4>Supported Mediums</h4> 
                     {this.props.item.art_medium}
                 </div> 
                 {this.props.item.city && 
-                    <div className='card-section'>
-                        <h4>Address</h4>
-                        {this.props.item.address && <p>{this.props.item.address}</p> }
-                        {this.props.item.city}, {this.props.item.state} {this.props.item.zip_code}
+                    <div className='card-section-city-state-country'>
+                        <h4>Location</h4>
+                        {this.props.item.city}{this.props.item.state &&<>, {this.props.item.state}</>} {this.props.item.country &&<> - {this.props.item.country}</>} 
                     </div>
                 }
-                <div className='card-section'>
-                    <h4>Contact Info</h4>
+                <div className='card-section-website'>
+                    {/* <h4>Contact Info</h4> */}
                     <p><a href={this.props.item.link_url} target="_blank" rel="noopener noreferrer">Website</a></p>
-                    {this.props.item.phone && <p>{this.props.item.phone}</p> }
-                    {this.props.item.email && <p>{this.props.item.email}</p> }
+                    {/* {this.props.item.phone && <p>{this.props.item.phone}</p> }
+                    {this.props.item.email && <p>{this.props.item.email}</p> } */}
                 </div>
                 {this.props.item.is_grant && 
-                    <div className="card-section">
+                    <div className="card-section-grant">
                         <h4>Grant Funding</h4>
-                        <p>This is a grant!</p>
+                        <br></br>
                     </div>
                 }
+                <div className='bookmark-button'>
                 { this.props.buttonShould === 'delete' 
-                    ? <button onClick={this.handleDelete}>Remove from Bookmarks</button> 
-                    : <button onClick={() => { handleFavorite(this.props.item, this.props.user); this.setState({ buttonText : 'Added!' }) }}>{this.state.buttonText}</button> }
+                    ? <button className="button" onClick={this.handleDelete}>Remove Bookmark</button> 
+                    : <button className="button" onClick={() => { handleFavorite(this.props.item, this.props.user); this.setState({ buttonText : 'Added!' }) }}>{this.state.buttonText}</button> }
+                </div>
             </li>
         )
     }
