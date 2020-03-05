@@ -14,7 +14,11 @@ export default class Home extends Component {
         resListings: [],
         user: {},
         resState: [],
-        resCenter:[],
+        resCenter:{
+            lat:'' ,
+            lng:'',
+            zoom:4.5
+        },
         loading: false
     }
     
@@ -44,6 +48,10 @@ export default class Home extends Component {
         this.setState({
             resState: data.body,
             resListings: data.body,
+            // resCenter:{
+            //     lat: data.body[0].lat,
+            //     lng: data.body[0].long
+            // },
             loading: false
         });
         console.log(this.state.resListings)
@@ -56,7 +64,10 @@ export default class Home extends Component {
                 <Search handleSearch={this.handleSearch}/>
                 <SelectState />
                 {/* <Search user={this.props.user} /> */}
-                <GMap resListings={this.state.resListings} />
+                <GMap 
+                    resListings={this.state.resListings} 
+                    resCenter={this.state.resCenter}
+                />
                 <ul className='residency-list'>
                     {this.state.data.map(item => <ResidencyCard user={this.props.user} item={item} key={item.id} />)}
                 </ul>

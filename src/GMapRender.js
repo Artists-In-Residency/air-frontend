@@ -9,17 +9,26 @@ export default class Map extends React.Component{
         selected: null,
         resListings: []
     }
-
+    async componentDidMount() {
+      console.log('>>>>>>>>>MOUNTING<<<<<<<<<')
+  }
     setSelected = (selected) =>{
         this.setState({selected})
     }
 
     render(){
-      console.log(this.props.resListings)
+      console.log(this.props.resCenter)
     
         return <GoogleMap 
               defaultZoom={4.5} 
-              defaultCenter={{lat:37.9283459, lng:-94.5794797}}
+              defaultCenter={{
+                  lat:37.9283459, 
+                  lng:-94.5794797
+                }}
+                // center={{
+                //   lat:this.props.resCenter.lat, 
+                //   lng:this.props.resCenter.lng
+                // }}
               defaultOptions={{styles: GMapStyle}} 
             >
               {this.props.resListings.map((res =>
