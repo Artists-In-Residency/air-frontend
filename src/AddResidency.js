@@ -23,14 +23,17 @@ export default class AddResidency extends Component {
     // Form component passes back state. Function also needs event. So we need a function to eat a function.
     handleAddResidency = (residency) => async (e) => {
         e.preventDefault();
-    
-        const address = (residency.address + '+' + residency.city + '+' + residency.state + '+' + residency.zip_code)
+        
+        //constructing an address to pass to the geocode api
+        const address = (residency.address + '+' + residency.city + '+' + residency.state + '+' + residency.zip_code);
+        //fetch address fro=[][p-0q``           `]
         const geoURL = `${process.env.REACT_APP_DB_URL}/api/me/geocode?search=${address}`
-        console.log(geoURL)
+
         const mapResult = await request.get(geoURL)
             .set('Authorization', this.props.user.token);
-        const lat = mapResult.body.results[0].geometry.location.lat
-        const lng = mapResult.body.results[0].geometry.location.lng
+        
+        const lat = mapResult.body.results[0].geometry.location.lat;
+        const lng = mapResult.body.results[0].geometry.location.lng;
         residency.lat = lat;
         residency.long = lng;
         console.log(residency)

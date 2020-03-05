@@ -45,10 +45,10 @@ export default class Map extends React.Component{
                   onClick={() => {
                     this.setSelected(res);
                   }}
-                  // icon={{
-                  //   url: "./pin.png",
-                  //   scaledSize: new window.google.maps.Size(45, 45)
-                  // }}
+                  icon={{
+                    url: "./artpin.png",
+                    scaledSize: new window.google.maps.Size(35, 75)
+                  }}
                 />
               ))}
   
