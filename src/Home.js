@@ -4,7 +4,6 @@ import Map from './GMap.js';
 import ResidencyCard from './ResidencyCard';
 import { getPagedResidencies, getUserLogin } from './api';
 
-
 export default class Home extends Component {
     state = {
         data: [],
