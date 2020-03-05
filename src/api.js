@@ -14,6 +14,13 @@ export const getAllResidencies = async () => {
     return result.body;
 }
 
+export const getPagedResidencies = async (id) => {
+    const URL = `${process.env.REACT_APP_DB_URL}/listings/page/${id}`;
+    console.log('Requesting all residencies from', URL);
+    const result = await request.get(URL);
+    return result.body;
+}
+
 export const getResidency = async (id) => {
     const URL = `${process.env.REACT_APP_DB_URL}/listings/${id}`;
     console.log('Requesting residency', id, 'from', URL);
