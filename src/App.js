@@ -5,6 +5,7 @@ import Header from './Header.js';
 import Home from './Home.js';
 import Login from './Login.js';
 import Favorites from './Favorites.js';
+import FavoritesBeta from './FavoritesBeta.js';
 import About from './About.js';
 import AddResidency from './AddResidency.js';
 import EditResidency from './EditResidency.js';
@@ -43,9 +44,9 @@ componentDidMount = () => {
   return (
     <BrowserRouter>
       <div className="App">
-        <Header user={this.state.user} username={this.state.username} />
+        <Header user={this.state.user} />
         <Switch>
-          <PrivateRoute exact path="/favoritesbeta" component={Favorites} user={this.state.user} />
+          <Route exact path="/favoritesbeta" render={() => <FavoritesBeta user={this.state.user} />} />
           <PrivateRoute exact path='/add' component={AddResidency} user={this.state.user} />
           <PrivateRoute exact path='/edit/:id' component={EditResidency} user={this.state.user} />
           <Route exact path='/login' render={(props) => <Login {...props} setUser={ this.setUser } user={this.state.user } />} />
@@ -55,7 +56,7 @@ componentDidMount = () => {
           <Route exact path="/listings/:residencyId" component={ResDetail} />
           <Route exact path="/admin/listings" component={ResidencyTable} />
           <Route exact path="/admin/users" component={UserTable} />
-          <Route path='/' component={Home} />
+          <Route path='/' render={() => <Home user={this.state.user} />} />
         </Switch>
       </div>
     </BrowserRouter>
