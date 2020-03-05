@@ -6,7 +6,6 @@ export default class Header extends Component {
 
 
     render() {
-        console.log('Header props', this.props);
         return (
             <header className="App-header">
                 <Link to='/'><h1>Artist Residencies Listings</h1></Link>

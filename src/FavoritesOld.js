@@ -1,37 +1,37 @@
 import React, { Component } from 'react';
 import request from 'superagent';
 import ResidencyCard from './ResidencyCard';
-// import { getFavorites, getFavorites2 } from './api';
-
-const user = JSON.parse(window.localStorage.getItem('user'));
+import { getFavorites } from './api';
 
 export default class Favorites extends Component {
-  
     state = {
         data: [],
-        user: user
-   }
+        shortData: [],
+        hardData: [{
+            program_name: "A Blade of Grass Fellowship",
+            address: "81 Prospect Street",
+            city: "Brooklyn",
+            state: "NY",
+            zip_code: 11201,
+            country: "USA",
+            continent: "North America",
+            phone_num: "6469450860",
+            email: "info@abladeofgrass.org",
+            art_medium: "ANY",
+            img_url: "http://www.abladeofgrass.org/wp-content/themes/abog/inc-img/logo.svg",
+            link_url: "http://www.abladeofgrass.org/fellowship-program/#how-to-apply",
+            description: "social change/better future focused, comes with $20k",
+            is_grant: true
+        }]
+    }
     
-  // const user = this.props.user;
         
     async componentDidMount() {
-        console.log('USER!', this.state.user);
-        console.log("PROPSSSSSSS", this.props )
-        const URL = `${process.env.REACT_APP_DB_URL}/api/me/favorites`;
-        const results = await request.get(URL)
-            .set('Authorization', this.state.user.token);
-        this.setState({ data: results.body });
+        // const result = await this.getFavoritesLocal();
+        const result = await getFavorites();
+        this.setState({ data: result });
+        this.setState({ shortData: result.slice(0, 3) });    
     }
-
-    // getFavorites2 = async () => {
-    //     
-    //     const URL = `${process.env.REACT_APP_DB_URL}/api/me/favorites`;
-    //     console.log('Requesting favorites from', URL, this.props.user.id);
-    //     console.log('WHAT PROPS, BRUH', this.props)
-    //     const result = await request.get(URL).set('Authorization', this.props.user.id);
-    //     return result.body;
-    // }
-    
 
     handleFavorite = async (passedItem) => {
         const URL = `${process.env.REACT_APP_DB_URL}/api/me/favorites/`;
@@ -72,13 +72,12 @@ export default class Favorites extends Component {
     //   }
 
     render() {
-        console.log(this.props, 'AHHHHHHHH');
         return (
             <div>
                 <h3>Favorites</h3>
                 <div className='card-container'>
                 <ul className='residency-list'>
-                    {this.state.data.map(item => <ResidencyCard item={item} key={item.id} />)}
+                    {this.state.shortData.map(item => <ResidencyCard item={item} key={item.id} />)}
                 </ul>
                 </div>
             </div>

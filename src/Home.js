@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Search from './Search.js';
 import Map from './GMap.js';
 import ResidencyCard from './ResidencyCard';
-import { getPagedResidencies, getUserLogin } from './api';
+import { getPagedResidencies, getUserFromLocalStorage } from './api';
 
 
 export default class Home extends Component {
@@ -27,7 +27,7 @@ export default class Home extends Component {
         const result = await getPagedResidencies(this.state.pageNumber);
         this.setState({ data: result });
         // this.setState({ shortData: result.slice(0, 3) });
-        const userFromLocalStorage = getUserLogin();
+        const userFromLocalStorage = getUserFromLocalStorage();
         if (userFromLocalStorage) {
             this.setState({ user: userFromLocalStorage });
         }          
