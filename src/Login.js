@@ -18,33 +18,21 @@ export default class Login extends Component {
             password: this.state.passwordSignUp,
             display_name: this.state.display_nameSignUp,
         }
-        console.log('Signing up with', newUser);
-        await request.post(URL, newUser)
-        .then((result) => {
-            this.props.setUser(result.body);
-            this.props.history.push('/');
-        })
-        .catch((err) => { 
-            alert(err); 
-            console.log(err);
-        })       
-}
+        const result = await request.post(URL, newUser);
+        console.log(result);
+        window.location = ('/');
+    }
     
     handleLogin = async () => {
         const URL=`${process.env.REACT_APP_DB_AUTH_URL}/signin`;
-        const existingUser = {
+        const newUser = {
             email: this.state.emailLogin,
             password: this.state.passwordLogin,
         }
-        await request.post(URL, existingUser)
-            .then((result) => {
-                this.props.setUser(result.body);
-                this.props.history.push('/');
-            })
-            .catch((err) => { 
-                alert(err); 
-                console.log(err);
-            })       
+        const result = await request.post(URL, newUser);
+        console.log(result);
+        localStorage.setItem('user', JSON.stringify(result.body));
+        window.location = ('/');
     }
 
     handleLogout = () => {
@@ -55,19 +43,9 @@ export default class Login extends Component {
     
     render() {
         return (
-            <div className='login-container'>
-                <div className='signin-container'>
-                <h2>Log In</h2>
-                    <label>Email
-                        <input onChange={(e) => this.setState({ emailLogin: e.target.value })} value={this.state.emailLogin} />
-                    </label>
-                    <label>Password
-                        <input onChange={(e) => this.setState({ passwordLogin: e.target.value })} value={this.state.passwordLogin} />
-                    </label>
-                    <button onClick={this.handleLogin}>Login</button>
-                </div>
+            <div>
+                <h1>Login</h1>
                 <div className='signup-container'>
-                <h2>Sign Up</h2>
                     <label>Email
                         <input onChange={(e) => this.setState({ emailSignUp: e.target.value })} value={this.state.emailSignUp} />
                     </label>
@@ -79,8 +57,16 @@ export default class Login extends Component {
                     </label>
                     <button onClick={this.handleSignUp}>Sign Up</button>
                 </div>
+                <div className='signin-container'>
+                    <label>Email
+                        <input onChange={(e) => this.setState({ emailLogin: e.target.value })} value={this.state.emailLogin} />
+                    </label>
+                    <label>Password
+                        <input onChange={(e) => this.setState({ passwordLogin: e.target.value })} value={this.state.passwordLogin} />
+                    </label>
+                    <button onClick={this.handleLogin}>Login</button>
+                </div>
                 <div className='logout-container'>
-                <h2>Logout</h2>
                     <button onClick={this.handleLogout}>Logout</button>
                 </div>
             </div>

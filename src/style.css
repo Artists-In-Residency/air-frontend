@@ -1,3 +1,7 @@
+.App {
+  text-align: center;
+}
+
 .App-header {
   background-color: #282c34;
   /* min-height: 100vh; */
@@ -15,7 +19,7 @@
 
 
 body {
-  text-align: left;
+  text-align: center;
   margin: 0 auto;
 }
 
@@ -26,13 +30,7 @@ header {
 header a {
   margin: 20px;
   color: white;
-  text-decoration: none;
 }
-
-header a:hover {
-  text-decoration: underline;
-}
-
 
 ul {
   margin: 0;
@@ -63,23 +61,6 @@ label input {
   padding: 5px;
 }
 
-.img_url-container {
-  width: 250px;
-  position: relative;
-  left: 200px;
-  border: 1px solid #ddd;
-  padding: 20px;
-}
-
-.img_url-container img {
-  width: 100%;
-}
-
-.login-container {
-  text-align: center;
-}
-
-
 .signup-container,
 .signin-container,
 .logout-container {
@@ -101,7 +82,7 @@ label input {
 }
 
 
-.signup-container,
+.signin-container,
 .logout-container {
   margin-top: 40px;
   padding-top: 30px;
@@ -110,10 +91,4 @@ label input {
 
 #maps {
   height: 100%;
-}
-
-.welcome {
-  position: absolute;
-  top: 15px;
-  right: 15px
 }
