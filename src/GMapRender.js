@@ -47,7 +47,7 @@ export default class Map extends React.Component{
                   }}
                   icon={{
                     url: "./artpinz.png",
-                    scaledSize: new window.google.maps.Size(35, 45)
+                    scaledSize: new window.google.maps.Size(33, 44)
                   }}
                 />
               ))}
