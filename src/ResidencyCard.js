@@ -1,20 +1,6 @@
 import React, { Component } from 'react';
 import './residency-card.css';
 
-// function tryThing(params) {
-
-//     let msg = (params.msg) ? params.msg : (function(){throw "error"}());
-
-//     // do stuff if everything inside `params` is defined
-// }
-
-// function imgError(image) {
-//     image.onerror = "";
-//     image.src = "http://placekitten.com/200/200";
-//     return true;}
-
-
-
 export default class ResidencyCard extends Component {
 
     //stuff to do error handling when an image is 404
