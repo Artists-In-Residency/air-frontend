@@ -43,8 +43,7 @@ export default class Search extends Component {
                     ? "loading!!"
                     : <List 
                     resState={this.state.resState} user={this.props.user}/> 
-                    //favorites={this.state.favorites}
-                    //user={this.props.user} /> 
+
                   }  
               
             </div>
