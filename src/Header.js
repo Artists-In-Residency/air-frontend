@@ -12,7 +12,7 @@ export default class Header extends Component {
                 <Link to='/'><h1>Artist Residencies Listings</h1></Link>
                 <MainNav />
                 <div className='welcome'>
-                    Hello {this.props.user.displayName}
+                {this.props.user.displayName ? 'Hello ' + this.props.user.displayName + '!' : '' }
                 </div>
             </header>  
         )
