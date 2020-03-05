@@ -59,10 +59,14 @@ export default class Map extends React.Component{
                     onCloseClick={() => {this.setSelected(null);}}
                   >
                 <div className="infoWindow" >
-                  <a href={this.state.selected.link_url}>
+                  <a href={`/listings/${this.state.selected.id}`}>
                     <h4>{this.state.selected.program_name}</h4>
                   </a>
                     <p className="infoDescription">{this.state.selected.description}</p>
+                  <a href={this.state.selected.link_url}>
+                    <h4>website</h4>
+                  </a>
+                  
                 </div>
                 </InfoWindow>
         
