@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Search from './Search.js';
 import Map from './GMap.js';
 import ResidencyCard from './ResidencyCard';
+import SelectState from './SelectState';
 import { getAllResidencies, getUserLogin } from './api';
 
 
@@ -26,6 +27,7 @@ export default class Home extends Component {
         console.log('Home props:', this.props);
         return (
             <div>
+                <SelectState />
                 <Search user={this.props.user} />
                 <Map />
                 <ul className='residency-list'>
