@@ -22,7 +22,7 @@ export default class Search extends Component {
     handleSearch = async (e) => {
         e.preventDefault();
         this.setState({ loading: true });
-        const data = await request.get(`${process.env.REACT_APP_DB_URL}/listings/state/${this.state.input}`)
+        const data = await request.get(`${process.env.REACT_APP_DB_URL}/search?search=${this.state.input}`)
         console.log(data);
         this.setState({
             resState: data.body,
@@ -42,7 +42,7 @@ export default class Search extends Component {
                     this.state.loading 
                     ? "loading!!"
                     : <List 
-                    resState={this.state.resState} /> 
+                    resState={this.state.resState} user={this.props.user}/> 
                     //favorites={this.state.favorites}
                     //user={this.props.user} /> 
                   }  
