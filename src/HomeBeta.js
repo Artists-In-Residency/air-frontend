@@ -34,23 +34,51 @@ export default class Home extends Component {
         }          
     }
 
+    let stateArray = this.state.data;
+          const randomRezRender = array => {
+              let randomRezArray = [];
+              for (let i = array.length - 1; i > 0; i--) {
+                const randomRes = Math.floor(Math.random() * (i + 1));
+                randomArray.push(randomRes);
+                if (randomArray.length > 10) {
+                    return randomArray;
+                }
+              }
+            return randomArray;
+          }}
+
 
 
     render() {
         console.log('Home props:', this.props);
+
+        let stateArray = this.state.data;
+          const randomRezRender = array => {
+              let randomRezArray = [];
+              for (let i = array.length - 1; i > 0; i--) {
+                const randomRes = Math.floor(Math.random() * (i + 1));
+                randomArray.push(randomRes);
+                if (randomArray.length > 10) {
+                    return randomArray;
+                }
+              }
+            return randomArray;
+          }}
+
         return (
+          <>
             <div>
                 <SelectState />
                 <Search user={this.props.user} />
                 <Map />
                 <ul className='residency-list'>
-                    {this.state.data.map(item => <ResidencyCard user={this.props.user} item={item} key={item.id} />)}
+                  {randomArray.map(item => <ResidencyCard user={this.props.user} item={item} key={item.id} />)}
                 </ul>
                 <div className="paging">
                 <button id="paging-button1" onClick={() => this.pageThing(-1)} disabled={this.state.pageNumber === 1} > LAST </button>
                 <button id="paging-button2" onClick={() => this.pageThing(1)} disabled={this.state.page === 12}> NEXT </button>
                 </div>
             </div>
+          </>
         )
     }
-}

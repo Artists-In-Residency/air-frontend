@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import './residency-card.css';
 import request from 'superagent';
 import { handleFavorite } from './api.js'
-import { getUserLogin } from './api';
-
 
 export default class ResidencyCard extends Component {
 
@@ -13,7 +11,7 @@ export default class ResidencyCard extends Component {
         this.state = { 
             imageStatus: "", 
             error: false, 
-            buttonText: 'Add to Favorites', 
+            buttonText: 'Bookmark', 
         };
       }
     
@@ -32,9 +30,7 @@ export default class ResidencyCard extends Component {
             .set('Authorization', this.props.user.token)
             .then((results) => {
                 console.log('Delete results', results);
-                // this.props.history.push('/favorites');
                 window.location=('/favorites');
-                // this.setState({ data: results.body });
             })
             .catch((err) => { 
                 alert(err); 
@@ -68,7 +64,7 @@ export default class ResidencyCard extends Component {
                 }
                 <div className='card-section'>
                     <h4>Contact Info</h4>
-                    <p><a href={this.props.item.link_url}>Website</a></p>
+                    <p><a href={this.props.item.link_url} target="_blank" rel="noopener noreferrer">Website</a></p>
                     {this.props.item.phone && <p>{this.props.item.phone}</p> }
                     {this.props.item.email && <p>{this.props.item.email}</p> }
                 </div>
@@ -79,7 +75,7 @@ export default class ResidencyCard extends Component {
                     </div>
                 }
                 { this.props.buttonShould === 'delete' 
-                    ? <button onClick={this.handleDelete}>Remove from Favorites</button> 
+                    ? <button onClick={this.handleDelete}>Remove from Bookmarks</button> 
                     : <button onClick={() => { handleFavorite(this.props.item, this.props.user); this.setState({ buttonText : 'Added!' }) }}>{this.state.buttonText}</button> }
             </li>
         )

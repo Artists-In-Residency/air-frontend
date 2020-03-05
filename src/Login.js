@@ -62,7 +62,7 @@ export default class Login extends Component {
                         <input onChange={(e) => this.setState({ emailLogin: e.target.value })} value={this.state.emailLogin} />
                     </label>
                     <label>Password
-                        <input onChange={(e) => this.setState({ passwordLogin: e.target.value })} value={this.state.passwordLogin} />
+                        <input type="password" onChange={(e) => this.setState({ passwordLogin: e.target.value })} value={this.state.passwordLogin} />
                     </label>
                     <button onClick={this.handleLogin}>Login</button>
                 </div>
@@ -71,11 +71,11 @@ export default class Login extends Component {
                     <label>Email
                         <input onChange={(e) => this.setState({ emailSignUp: e.target.value })} value={this.state.emailSignUp} />
                     </label>
+                    <label>Password
+                        <input type="password" onChange={(e) => this.setState({ passwordSignUp: e.target.value })} value={this.state.passwordSignUp} />
+                    </label>
                     <label>Display Name
                         <input onChange={(e) => this.setState({ display_nameSignUp: e.target.value })} value={this.state.display_nameSignUp} />
-                    </label>
-                    <label>Password
-                        <input onChange={(e) => this.setState({ passwordSignUp: e.target.value })} value={this.state.passwordSignUp} />
                     </label>
                     <button onClick={this.handleSignUp}>Sign Up</button>
                 </div>
