@@ -2,7 +2,7 @@
 import React, { Component } from 'react'
 import List from './List';
 import request from 'superagent';
-import './Home.css';
+import './search.css';
 
 export default class Search extends Component {
     // initialize state

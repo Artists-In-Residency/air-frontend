@@ -1,3 +1,15 @@
 .main {
-padding: 50px;
+margin: 5%;
+}
+
+.h1{
+  text-align: center;
+}
+
+.center{
+  text-align: center;
+}
+
+.header {
+  padding-bottom: 55px;
 }
