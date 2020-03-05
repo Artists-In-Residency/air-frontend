@@ -5,7 +5,6 @@ import Header from './Header.js';
 import Home from './Home.js';
 import Login from './Login.js';
 import Favorites from './Favorites.js';
-import FavoritesBeta from './FavoritesBeta.js';
 import About from './About.js';
 import AddResidency from './AddResidency.js';
 import EditResidency from './EditResidency.js';
@@ -13,11 +12,11 @@ import ResidencyTable from './ResidencyTable.js';
 import UserTable from './UserTable.js';
 import GMap from './GMap.js';
 import ResDetailItem from './ResDetailItem.js';
+import { getUserFromLocalStorage } from './api.js';
 
 import './bootstrap-reboot.min.css';
 import './App.css';
 import './style.css';
-import { getUserLogin } from './api.js';
 
 export default class App extends Component {
   constructor(props) {
@@ -36,8 +35,8 @@ setUser = (userFromLogin) => {
 }
 
 // Put user into state from localStorage on refresh
-componentDidMount = () => {
-  const userFromLocalStorage = getUserLogin();
+componentWillMount = () => {
+  const userFromLocalStorage = getUserFromLocalStorage();
   if (userFromLocalStorage) {
     this.setState({ user: userFromLocalStorage });
   }
@@ -50,11 +49,11 @@ componentDidMount = () => {
       <div className="App">
         <Header user={this.state.user} />
         <Switch>
-          <Route exact path="/favoritesbeta" render={(props) => <FavoritesBeta {...props} user={this.state.user} />} />
+          {/* <Route exact path="/favorites" render={(props) => <Favorites {...props} user={this.state.user} />} /> */}
+          <PrivateRoute exact path='/favorites' component={Favorites} user={this.state.user}/>
           <PrivateRoute exact path='/add' component={AddResidency} user={this.state.user} />
           <PrivateRoute exact path='/edit/:id' component={EditResidency} user={this.state.user} />
           <Route exact path='/login' render={(props) => <Login {...props} setUser={ this.setUser } user={this.state.user } />} />
-          <Route exact path='/favorites' component={Favorites} />
           <Route exact path='/about' component={About} />
           <Route exact path='/map' component={GMap} />
           <Route exact path="/listings/:residencyId" render={(props) => <ResDetailItem {...props} user={this.state.user} />} />
