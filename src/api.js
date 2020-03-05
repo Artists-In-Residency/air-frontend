@@ -7,6 +7,14 @@ export const getFavorites = async () => {
     return result.body;
 }
 
+export const getFavorites2 = async (userId) => {
+    const URL = `${process.env.REACT_APP_DB_URL}/api/me/favorites`;
+    console.log('Requesting favorites from', URL, userId);
+    const result = await request.get(URL).set('Authorization', userId);
+    return result.body;
+}
+
+
 export const getAllResidencies = async () => {
     const URL = `${process.env.REACT_APP_DB_URL}/listings`;
     console.log('Requesting all residencies from', URL);
