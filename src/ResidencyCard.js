@@ -75,8 +75,8 @@ export default class ResidencyCard extends Component {
                 <div className="grant-container">
                     <p>{this.props.item.is_grant}</p>
                 </div>
-                <p><a href={this.props.item.link_url}>Check it out</a></p>
-                <button onClick={this.handleFavorite}>MAKE FAVORITE</button> 
+                <p><a href={this.props.item.link_url} target="_blank" rel="noopener noreferrer">Check it out</a></p>
+                <button onClick={this.handleFavorite}>BOOKMARK</button> 
             </li>
         )
     }

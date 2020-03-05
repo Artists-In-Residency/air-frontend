@@ -75,7 +75,7 @@ export default class Favorites extends Component {
         console.log(this.props, 'AHHHHHHHH');
         return (
             <div>
-                <h3>Favorites</h3>
+                <h3>Bookmarks</h3>
                 <div className='card-container'>
                 <ul className='residency-list'>
                     {this.state.data.map(item => <ResidencyCard item={item} key={item.id} />)}

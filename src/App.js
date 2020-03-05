@@ -51,11 +51,11 @@ componentDidMount = () => {
       <div className="App">
         <Header user={this.state.user} />
         <Switch>
-          <Route exact path="/favoritesbeta" render={(props) => <FavoritesBeta {...props} user={this.state.user} />} />
+          <Route exact path="/bookmarks" render={(props) => <FavoritesBeta {...props} user={this.state.user} />} />
           <PrivateRoute exact path='/add' component={AddResidency} user={this.state.user} />
           <PrivateRoute exact path='/edit/:id' component={EditResidency} user={this.state.user} />
           <Route exact path='/login' render={(props) => <Login {...props} setUser={ this.setUser } user={this.state.user } />} />
-          <Route exact path='/favorites' component={Favorites} />
+          {/* <Route exact path='/bookmarks' component={Favorites} /> */}
           <Route exact path='/about' component={About} />
           <Route exact path='/tips' component={Tips} />
           <Route exact path='/map' component={GMap} />

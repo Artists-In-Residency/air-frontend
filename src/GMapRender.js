@@ -58,7 +58,7 @@ export default class Map extends React.Component{
                     onCloseClick={() => {this.setSelected(null);}}
                   >
                 <div style={{background: 'red', height: '100px', width: '100px'}}>
-                  <a href={this.state.selected.link_url}>
+                  <a href={this.state.selected.link_url} target="_blank" rel="noopener noreferrer">
                     <h4>{this.state.selected.program_name}</h4>
                   </a>
                     <p>{this.state.selected.description}</p>

@@ -7,7 +7,7 @@ export default class MainNav extends Component {
             <div>
                 <nav>
                     <Link to='/'>Home</Link>
-                    <Link to='/favorites'>Favorites</Link>
+                    <Link to='/bookmarks'>Bookmarks</Link>
                     <Link to='/add'>Add a Residency</Link>
                     <Link to='/about'>About</Link>
                     <Link to='/tips'>Tips</Link>
