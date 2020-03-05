@@ -74,7 +74,7 @@ export default class Favorites extends Component {
     render() {
         return (
             <div>
-                <h3>Favorites</h3>
+                <h3>Bookmarks</h3>
                 <div className='card-container'>
                 <ul className='residency-list'>
                     {this.state.shortData.map(item => <ResidencyCard item={item} key={item.id} />)}

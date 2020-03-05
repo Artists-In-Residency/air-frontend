@@ -5,7 +5,6 @@ import ResidencyCard from './ResidencyCard';
 import SelectState from './SelectState';
 import { getPagedResidencies, getUserFromLocalStorage } from './api';
 
-
 export default class Home extends Component {
     state = {
         data: [],

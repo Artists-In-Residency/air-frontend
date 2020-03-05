@@ -1,6 +1,5 @@
 import React from 'react'
 import { GoogleMap, withScriptjs, withGoogleMap, Marker, InfoWindow } from "react-google-maps";
-import request from 'superagent'
 import { getAllResidencies } from './api.js'
 import GMapStyle from './GMapStyle.js'
 import './GMapRender.css';
@@ -22,7 +21,6 @@ export default class Map extends React.Component{
         console.log(this.state.resListings)
     }
 
-    // const [selected, setSelected] = useState(null);
     render(){
     
         return <GoogleMap 
@@ -30,13 +28,6 @@ export default class Map extends React.Component{
               defaultCenter={{lat:37.9283459, lng:-94.5794797}}
               defaultOptions={{styles: GMapStyle}} 
             >
-                  {/* <Marker 
-                  key={Math.random()}
-                  position={{ lat:45.512230, lng:-122.658722
-                  }}
-                /> */}
-  
-                {/* map through all the residential listings and map 'em out lol  */}
               {this.state.resListings.map((res =>
   
                 <Marker 
@@ -52,7 +43,7 @@ export default class Map extends React.Component{
                   }}
                 />
               ))}
-  {/* style={{background: 'red', height: '100px', width: '100px'}} */}
+
               {this.state.selected && (
                  <InfoWindow
                     position={{ lat:Number(this.state.selected.lat), lng:Number(this.state.selected.long) }} 
@@ -63,8 +54,8 @@ export default class Map extends React.Component{
                     <h4>{this.state.selected.program_name}</h4>
                   </a>
                     <p className="infoDescription">{this.state.selected.description}</p>
-                  <a href={this.state.selected.link_url}>
-                    <h4>website</h4>
+                  <a href={this.state.selected.link_url} target="_blank" rel="noopener noreferrer">
+                    <h4>Website</h4>
                   </a>
                   
                 </div>
