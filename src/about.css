@@ -1,0 +1,16 @@
+
+.devs {
+  text-align: left;
+  display: flex;
+  justify-content: center;
+  margin: 50px auto;
+}
+
+.dev {
+  font-size: 15px;
+  width: 15%;
+  margin: 20px;
+
+}
+
+

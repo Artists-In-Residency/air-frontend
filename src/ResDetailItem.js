@@ -45,8 +45,8 @@ export default class ResDetailItem extends Component {
                         <h4>Grant Funding</h4>
                         <p>{this.state.residency.is_grant}</p>
                     </div>
-                    <p><a href={this.state.residency.link_url}>Program Website</a></p>
-                    <button onClick={() => handleFavorite(this.state.residency, user)}>ADD TO FAVORITES</button> 
+                    <p><a href={this.state.residency.link_url} target="_blank" rel="noopener noreferrer">Program Website</a></p>
+                    <button onClick={() => handleFavorite(this.state.residency, user)}>BOOKMARK</button> 
                 </div>
             </div>
         )
