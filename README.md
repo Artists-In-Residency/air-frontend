@@ -1,6 +1,6 @@
 1. The name of the project: 
 
-PROJECT TITLE: "AIR-SOMETHING"
+PROJECT TITLE: AIR SUPPLY
 
 2. Names of the team members:
 
@@ -8,7 +8,7 @@ MIKEY ROMAY, JOSH FORD, NATHAN MARTEL, SCOTT CAMPBELL
 
 3. A description of the project:
 
-"AIR-SOMETHING" is ...
+AIR SUPPLY is a project intended to create a resource for artists—artistsof any level and practictioners of any medium—with a living resource for locating information regarding artist residencies (where, when, deadlines, contact information, how to apply, etc), as well as funding opportunities. The goal is to faciliate the pursuit and creation of art and help those interested in obtaining a residency find the information they need.
 
 4. The overall problem domain and how the project solves those problems:
 
