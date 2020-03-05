@@ -12,7 +12,7 @@ export default class List extends Component {
         return (
 
                 <main>
-                  <ul>
+                  <ul className='residency-list'>
                     {program}
                   </ul>
                 </main>

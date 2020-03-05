@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { WrappedMap } from './GMapRender.js';
-import * as resListings from "./data.json";
 
 export default class GMap extends Component {
 

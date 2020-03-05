@@ -1,4 +1,31 @@
 /* ---------- */
+/* DETAIL COMPONENT */
+/* ---------- */
+
+.detail-container {
+    max-width: 90%;
+    margin: 20px auto;
+}
+
+.detail-section {
+    margin: 15px 0;
+}
+
+.residency-detail h4 {
+    margin-bottom: 0;
+}
+
+.residency-detail button {
+    margin-left: 0;
+}
+
+.residency-detail .image-container {
+    margin-bottom: 20px;
+}
+
+
+
+/* ---------- */
 /* CARD COMPONENT */
 /* ---------- */
 
@@ -15,12 +42,21 @@
 
 .residency-card {
     width: 250px;
-    margin: 30px;
+    margin: 25px;
     padding: 15px;
     border: 1px solid #ddd;
     text-align: left;
 }
 
+.card-section {
+    margin: 15px 0;
+}
+
+.card-section p {
+    margin: 0;
+}
+
+.residency-card h3,
 .residency-card h4 {
     margin-bottom: 0;
 }
@@ -28,6 +64,26 @@
 .residency-card img {
     width: 100%;
 }
+
+.residency-card button {
+    margin-left: 0;
+}
+
+.residency-card .image-container {
+    margin: -15px;
+    margin-bottom: 15px;
+    height: 150px;
+    overflow: hidden;
+    background-color: #eee;
+    text-align: center;
+}
+
+.residency-card .image-container img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
 
 
 
