@@ -1,20 +1,16 @@
 import React, { Component } from 'react'
 import ResidencyTableRow from './ResidencyTableRow';
 import { getAllResidencies } from './api';
-
 import './residency-card.css';
-
 
 export default class Home extends Component {
     state = {
         data: [],
-        shortData: [],
     }
 
     async componentDidMount() {
         const result = await getAllResidencies();
         this.setState({ data: result });
-        this.setState({ shortData: result.slice(0, 19) });
     }
 
     render() {
@@ -37,7 +33,7 @@ export default class Home extends Component {
                         </tr>                        
                     </thead>
                     <tbody>
-                        {this.state.shortData.map(item => <ResidencyTableRow item={item} key={item.id} />)}
+                        {this.state.data.map(item => <ResidencyTableRow item={item} key={item.id} />)}
                     </tbody>                        
                 </table>
             </div>

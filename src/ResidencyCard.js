@@ -23,7 +23,6 @@ export default class ResidencyCard extends Component {
         this.setState({ imageStatus: "", error: true });
     }
 
-
     handleDelete = async () => {
         const URL = `${process.env.REACT_APP_DB_URL}/api/me/favorites/${this.props.item.id}`;
         await request.delete(URL)
@@ -37,8 +36,6 @@ export default class ResidencyCard extends Component {
                 console.log(err);
             })       
     }
-
-      
 
     render() {
         return (

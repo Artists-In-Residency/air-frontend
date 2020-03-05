@@ -79,7 +79,6 @@ label input {
   text-align: center;
 }
 
-
 .signup-container,
 .signin-container,
 .logout-container {
@@ -99,7 +98,6 @@ label input {
 {
   max-width: 450px;
 }
-
 
 .signup-container,
 .logout-container {

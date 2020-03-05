@@ -8,7 +8,6 @@ export default class UserTableRow extends Component {
                 <td>{this.props.item.email}</td>
                 <td>{this.props.item.display_name}</td>
                 <td>x</td>
-                {/* <td><a href={`/edit/user/${this.props.item.id}`}>Edit</a></td> */}
             </tr>
         )
     }

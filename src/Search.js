@@ -2,22 +2,13 @@
 import React, { Component } from 'react'
 import List from './List';
 import request from 'superagent';
+import './Home.css';
 
 export default class Search extends Component {
     // initialize state
     state = { 
         resState: [], 
-        // favorites: [],  
-        // input: '', 
     }
-
-    // componentDidMount = async () => {
-    //     const faves = await request.get('http://{process.env.REACT_APP_DB_URL}api/me/favorites')
-    //     .set('Authorization', this.props.user.token);
-
-        // fetch faves on mount to decide whether to put a star or a make favorite button
-    //     this.setState({ favorites: faves.body })
-    // }
 
     handleSearch = async (e) => {
         e.preventDefault();
@@ -33,10 +24,12 @@ export default class Search extends Component {
     render() {
 
         return (
-            <div>
+            <div className="searchDiv">
                 <form onSubmit={this.handleSearch}>
-                  <input value={this.state.input} onChange={(e) => this.setState({ input: e.target.value })} />
-                  <button disabled={this.state.loading}>Search!</button>
+                  
+                  <input className="input" value={this.state.input} onChange={(e) => this.setState({ input: e.target.value })} />
+                  <button className="button" disabled={this.state.loading}>Search!</button>
+                  
                 </form>
                   {
                     this.state.loading 

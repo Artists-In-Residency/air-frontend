@@ -2,8 +2,9 @@ import React, { Component } from 'react'
 import Search from './Search.js';
 import Map from './GMap.js';
 import ResidencyCard from './ResidencyCard';
-import SelectState from './SelectState';
+//import SelectState from './SelectState';
 import { getPagedResidencies, getUserFromLocalStorage } from './api';
+
 
 
 export default class Home extends Component {
@@ -11,23 +12,18 @@ export default class Home extends Component {
         data: [],
         totalPage: 20,
         pageNumber: 1,
-        shortData: [],
         user: {}
     }
     
     async componentDidMount() {
-        // const result = await getAllResidencies();
         const result = await getPagedResidencies(1);
         this.setState({ data: result });
-        // this.setState({ shortData: result.slice(0, 3) });
     }
 
     async pageThing(number) {
-        // const result = await getAllResidencies();
         await this.setState({ pageNumber: this.state.pageNumber + number });
         const result = await getPagedResidencies(this.state.pageNumber);
         this.setState({ data: result });
-        // this.setState({ shortData: result.slice(0, 3) });
         const userFromLocalStorage = getUserFromLocalStorage();
         if (userFromLocalStorage) {
             this.setState({ user: userFromLocalStorage });
@@ -40,8 +36,9 @@ export default class Home extends Component {
         console.log('Home props:', this.props);
         return (
             <div>
-                <SelectState />
-                <Search user={this.props.user} />
+                <div className="search">
+                    <Search user={this.props.user} />
+                </div>
                 <Map />
                 <ul className='residency-list'>
                     {this.state.data.map(item => <ResidencyCard user={this.props.user} item={item} key={item.id} />)}
