@@ -3,6 +3,7 @@ import { GoogleMap, withScriptjs, withGoogleMap, Marker, InfoWindow } from "reac
 import request from 'superagent'
 import { getAllResidencies } from './api.js'
 import GMapStyle from './GMapStyle.js'
+import './GMapRender.css';
 
 export default class Map extends React.Component{
  
@@ -47,21 +48,21 @@ export default class Map extends React.Component{
                   }}
                   icon={{
                     url: "./artpinz.png",
-                    scaledSize: new window.google.maps.Size(33, 44)
+                    scaledSize: new window.google.maps.Size(33, 45)
                   }}
                 />
               ))}
-  
+  {/* style={{background: 'red', height: '100px', width: '100px'}} */}
               {this.state.selected && (
                  <InfoWindow
                     position={{ lat:Number(this.state.selected.lat), lng:Number(this.state.selected.long) }} 
                     onCloseClick={() => {this.setSelected(null);}}
                   >
-                <div style={{background: 'red', height: '100px', width: '100px'}}>
+                <div className="infoWindow" >
                   <a href={this.state.selected.link_url}>
                     <h4>{this.state.selected.program_name}</h4>
                   </a>
-                    <p>{this.state.selected.description}</p>
+                    <p className="infoDescription">{this.state.selected.description}</p>
                 </div>
                 </InfoWindow>
         
