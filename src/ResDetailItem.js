@@ -18,7 +18,7 @@ export default class ResDetailItem extends Component {
                 </div>
                 <div className='contact-container'>
                     <h4>Contact Info</h4>
-                    {this.props.item.phone}
+                    {this.props.item.phone_num}
                     {this.props.item.email}
                 </div>
                 <div className="grant-container">

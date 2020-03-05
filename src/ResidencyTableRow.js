@@ -24,7 +24,7 @@ export default class ResidencyTableRow extends Component {
                 <td className='description'>{this.props.item.description}</td>
                 <td>{this.props.item.art_medium}</td> 
                 <td>{this.props.item.address}<br />{this.props.item.city}, {this.props.item.state} {this.props.item.zip_code}</td>
-                <td>{this.props.item.phone}</td>
+                <td>{this.props.item.phone_num}</td>
                 <td>{this.props.item.email}</td>
                 <td>{this.props.item.is_grant}</td>
                 <td><a href={`/edit/${this.props.item.id}`}>Edit</a></td>
