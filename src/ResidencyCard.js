@@ -10,16 +10,20 @@ export default class ResidencyCard extends Component {
     //stuff to do error handling when an image is 404
     constructor(props) {
         super(props);
-        this.state = { imageStatus: "", error: false };
+        this.state = { 
+            imageStatus: "", 
+            error: false, 
+            buttonText: 'Add to Favorites', 
+        };
       }
     
-      handleImageLoaded() {
+    handleImageLoaded() {
         this.setState({ imageStatus: "", error: false });
-      }
-    
-      handleImageError() {
+    }
+
+    handleImageError() {
         this.setState({ imageStatus: "", error: true });
-      }
+    }
 
 
     handleDelete = async () => {
@@ -28,6 +32,8 @@ export default class ResidencyCard extends Component {
             .set('Authorization', this.props.user.token)
             .then((results) => {
                 console.log('Delete results', results);
+                // this.props.history.push('/favorites');
+                window.location=('/favorites');
                 // this.setState({ data: results.body });
             })
             .catch((err) => { 
@@ -74,7 +80,7 @@ export default class ResidencyCard extends Component {
                 }
                 { this.props.buttonShould === 'delete' 
                     ? <button onClick={this.handleDelete}>Remove from Favorites</button> 
-                    : <button onClick={() => handleFavorite(this.props.item, this.props.user)}>Add to Favorites</button> }
+                    : <button onClick={() => { handleFavorite(this.props.item, this.props.user); this.setState({ buttonText : 'Added!' }) }}>{this.state.buttonText}</button> }
             </li>
         )
     }
