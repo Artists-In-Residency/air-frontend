@@ -49,7 +49,7 @@ export default class EditResidency extends Component {
                 <h2>Edit Residency</h2>
                 {/* Use spread operator to 'flatten' all key/value pairs in newResidency and pass them as individual props */}
                 {/* Conditionally load the form - wait until the data has been acquired first, otherwise state in ResidencyForm can't be set properly */}
-                { this.state.data && <ResidencyForm {...this.state.data} handleFormSubmit={this.handleEditResidency} /> }
+                { this.state.data && <ResidencyForm {...this.state.data} handleFormSubmit={this.handleEditResidency} edit={true} /> }
             </div>
 
         )

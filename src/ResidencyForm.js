@@ -24,9 +24,11 @@ export default class ResidencyForm extends Component {
                 <label>Program Name
                     <input onChange={(e) => this.setState({ program_name: e.target.value })} value={this.state.program_name} />                        
                 </label>
-                <div className='img_url-container'>
-                    <img src={this.props.img_url} alt={this.props.program_name} />
-                </div>
+                { this.props.edit &&
+                    <div className='img_url-container'>
+                        <img src={this.props.img_url} alt={this.props.program_name} />
+                    </div>
+                }
                 <label>Image URL
                     <input onChange={(e) => this.setState({ img_url: e.target.value })} value={this.state.img_url} />
                 </label>

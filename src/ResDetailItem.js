@@ -8,7 +8,8 @@ const user = JSON.parse(window.localStorage.getItem('user'));
 export default class ResDetailItem extends Component {
 
     state = {
-        residency : {}
+        residency : {},
+        buttonText : 'Bookmark'
     }
     componentDidMount = async() => {
         const resInfo = await request.get(`${process.env.REACT_APP_DB_URL}/listings/${this.props.match.params.residencyId}`);
@@ -46,7 +47,7 @@ export default class ResDetailItem extends Component {
                         <p>{this.state.residency.is_grant}</p>
                     </div>
                     <p><a href={this.state.residency.link_url} target="_blank" rel="noopener noreferrer">Program Website</a></p>
-                    <button onClick={() => handleFavorite(this.state.residency, user)}>BOOKMARK</button> 
+                    <button onClick={ () => { handleFavorite(this.state.residency, this.props.user); this.setState({ buttonText : 'Added!' });} }>{this.state.buttonText}</button>
                 </div>
             </div>
         )
