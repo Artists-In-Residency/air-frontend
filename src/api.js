@@ -72,6 +72,8 @@ export const handleFavorite = async (item, user) => {
         address: item.address,
         city: item.city,
         state: item.state,
+        country: item.country,
+        continent: item.continent,
         zip_code: item.zip_code,
         phone_num: item.phone_num,
         email: item.email,
@@ -79,7 +81,9 @@ export const handleFavorite = async (item, user) => {
         img_url: item.img_url,
         link_url: item.link_url,
         description: item.description,
-        is_grant: false
+        is_grant: false,
+        lat: item.lat,
+        long: item.long,
     }
     console.log('handleFavorite requesting', URL, item, user)
     await request
