@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import ResidencyCard from './ResidencyCard.js';
-import ResDetailItem from './ResDetailItem.js';
 import request from 'superagent';
 import { Link } from 'react-router-dom';
 
@@ -17,13 +16,13 @@ export default class ResDetail extends Component {
   
   render() {
       console.log(this.props.match.params.id)
-      
+
       const { residency } = this.state;
  
     return (
       <>
-        <Link to={`favorites/${this.state.residency}`}>
-        {residency.id && <ResDetailItem item={ residency } />}
+        <Link to={`favorites/${this.state.residency.id}`}>
+        {residency.id && <ResidencyCard item={ residency } />}
         </Link>
       </>
     )

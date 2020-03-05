@@ -12,7 +12,7 @@ import EditResidency from './EditResidency.js';
 import ResidencyTable from './ResidencyTable.js';
 import UserTable from './UserTable.js';
 import GMap from './GMap.js';
-import ResDetail from './ResDetail.js';
+import ResDetailItem from './ResDetailItem.js';
 
 import './bootstrap-reboot.min.css';
 import './App.css';
@@ -53,7 +53,7 @@ componentDidMount = () => {
           <Route exact path='/favorites' component={Favorites} />
           <Route exact path='/about' component={About} />
           <Route exact path='/map' component={GMap} />
-          <Route exact path="/listings/:residencyId" component={ResDetail} />
+          <Route exact path="/listings/:residencyId" render={(props) => <ResDetailItem {...props} user={this.state.user} />} />
           <Route exact path="/admin/listings" component={ResidencyTable} />
           <Route exact path="/admin/users" component={UserTable} />
           <Route path='/' render={() => <Home user={this.state.user} />} />
