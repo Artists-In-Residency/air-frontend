@@ -14,6 +14,7 @@ import ResidencyTable from './ResidencyTable.js';
 import UserTable from './UserTable.js';
 import GMap from './GMap.js';
 import ResDetailItem from './ResDetailItem.js';
+import Search from './Search.js';
 import { getUserFromLocalStorage } from './api.js';
 
 import './bootstrap-reboot.min.css';
@@ -52,6 +53,7 @@ componentWillMount = () => {
           <PrivateRoute exact path='/bookmarks' component={Bookmarks} user={this.state.user}/>
           <PrivateRoute exact path='/add' component={AddResidency} user={this.state.user} />
           <PrivateRoute exact path='/edit/:id' component={EditResidency} user={this.state.user} />
+          <Route exact path='/search' component={Search} user={this.state.user}/>
           <PrivateRoute exact path='/my/listings/' component={MyResidencies} user={this.state.user} />
           <Route exact path='/login' render={(props) => <Login {...props} setUser={ this.setUser } user={this.state.user } />} />
           <Route exact path='/about' component={About} />

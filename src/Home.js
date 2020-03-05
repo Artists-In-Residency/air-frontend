@@ -1,20 +1,28 @@
 import React, { Component } from 'react'
 import Search from './Search.js';
-import Map from './GMap.js';
+import GMap from './GMap.js';
 import ResidencyCard from './ResidencyCard';
 import SelectState from './SelectState';
-import { getPagedResidencies, getUserFromLocalStorage } from './api';
+import request from 'superagent';
+import { getPagedResidencies, getUserFromLocalStorage, getAllResidencies } from './api';
 
 export default class Home extends Component {
     state = {
         data: [],
         totalPage: 20,
         pageNumber: 1,
-        user: {}
+        resListings: [],
+        user: {},
+        resState: [],
+        resCenter:[],
+        loading: false
     }
     
     async componentDidMount() {
+        console.log('>>>>>>>>>MOUNTING<<<<<<<<<')
         const result = await getPagedResidencies(1);
+        const allListings = await getAllResidencies();
+        this.setState({resListings: allListings})
         this.setState({ data: result });
     }
 
@@ -28,13 +36,27 @@ export default class Home extends Component {
         }          
     }
 
+    handleSearch = (input) => async (e) => {
+        e.preventDefault();
+        this.setState({ loading: true });
+        const data = await request.get(`${process.env.REACT_APP_DB_URL}/search?search=${input}`)
+        console.log(data);
+        this.setState({
+            resState: data.body,
+            resListings: data.body,
+            loading: false
+        });
+        console.log(this.state.resListings)
+    }
+
     render() {
-        console.log('Home props:', this.props);
+        // console.log('Home props:', this.props);
         return (
             <div>
+                <Search handleSearch={this.handleSearch}/>
                 <SelectState />
-                <Search user={this.props.user} />
-                <Map />
+                {/* <Search user={this.props.user} /> */}
+                <GMap resListings={this.state.resListings} />
                 <ul className='residency-list'>
                     {this.state.data.map(item => <ResidencyCard user={this.props.user} item={item} key={item.id} />)}
                 </ul>
