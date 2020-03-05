@@ -20,6 +20,10 @@ import './style.css';
 import { getUserLogin } from './api.js';
 
 export default class App extends Component {
+  constructor(props) {
+    super(props);
+    console.log('poop', this.props);
+  }
 state = {
     user: [],
     username: ''
@@ -46,7 +50,7 @@ componentDidMount = () => {
       <div className="App">
         <Header user={this.state.user} />
         <Switch>
-          <Route exact path="/favoritesbeta" render={() => <FavoritesBeta user={this.state.user} />} />
+          <Route exact path="/favoritesbeta" render={(props) => <FavoritesBeta {...props} user={this.state.user} />} />
           <PrivateRoute exact path='/add' component={AddResidency} user={this.state.user} />
           <PrivateRoute exact path='/edit/:id' component={EditResidency} user={this.state.user} />
           <Route exact path='/login' render={(props) => <Login {...props} setUser={ this.setUser } user={this.state.user } />} />

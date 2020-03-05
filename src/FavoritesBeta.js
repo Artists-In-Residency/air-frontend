@@ -1,19 +1,37 @@
 import React, { Component } from 'react';
 import request from 'superagent';
 import ResidencyCard from './ResidencyCard';
-import { getFavorites, getFavorites2 } from './api';
+// import { getFavorites, getFavorites2 } from './api';
+
+const user = JSON.parse(window.localStorage.getItem('user'));
 
 export default class Favorites extends Component {
+  
     state = {
         data: [],
+        user: user
    }
     
+  // const user = this.props.user;
         
     async componentDidMount() {
-        // const result = await this.getFavoritesLocal();
-        const results = await getFavorites2(this.props.user.id);
-        this.setState({ data: results });
+        console.log('USER!', this.state.user);
+        console.log("PROPSSSSSSS", this.props )
+        const URL = `${process.env.REACT_APP_DB_URL}/api/me/favorites`;
+        const results = await request.get(URL)
+            .set('Authorization', this.state.user.token);
+        this.setState({ data: results.body });
     }
+
+    // getFavorites2 = async () => {
+    //     
+    //     const URL = `${process.env.REACT_APP_DB_URL}/api/me/favorites`;
+    //     console.log('Requesting favorites from', URL, this.props.user.id);
+    //     console.log('WHAT PROPS, BRUH', this.props)
+    //     const result = await request.get(URL).set('Authorization', this.props.user.id);
+    //     return result.body;
+    // }
+    
 
     handleFavorite = async (passedItem) => {
         const URL = `${process.env.REACT_APP_DB_URL}/api/me/favorites/`;
@@ -54,6 +72,7 @@ export default class Favorites extends Component {
     //   }
 
     render() {
+        console.log(this.props, 'AHHHHHHHH');
         return (
             <div>
                 <h3>Favorites</h3>
