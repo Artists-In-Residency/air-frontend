@@ -11,7 +11,7 @@ export default class GMap extends Component {
           process.env.REACT_APP_GOOGLE_MAPS_API}`}
           loadingElement={<div style={{ height: "100%" }} />}
           containerElement={<div style={{ height: "100%" }} />}
-          mapElement={<div style={{ height: "100%" }} />}
+          mapElement={<div style={{ height: "50%", width: "50%"}} />}
         />
       </div>
     )
