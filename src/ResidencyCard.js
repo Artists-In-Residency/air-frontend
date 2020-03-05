@@ -16,6 +16,8 @@ import './residency-card.css';
 
 
 export default class ResidencyCard extends Component {
+
+    //stuff to do error handling when an image is 404
     constructor(props) {
         super(props);
         this.state = { imageStatus: "loading", error: false };
@@ -35,7 +37,6 @@ export default class ResidencyCard extends Component {
                 <div className='image-container'>
                         <img src={this.state.error || this.props.item.img_url ? this.props.item.img_url : 'http://placekitten.com/100/100'} onLoad={this.handleImageLoaded.bind(this)} onError={this.handleImageError.bind(this)} alt='pic'/>
                                 {this.state.imageStatus}
-                    {/* <img src={this.props.item.img_url ? this.props.item.img_url : 'http://placekitten.com/100/100' } onError="imgError(this);" alt='pic' /> */}
                 </div>
                 <h3>{this.props.item.program_name}</h3>
                 <p>{this.props.item.description}</p>
