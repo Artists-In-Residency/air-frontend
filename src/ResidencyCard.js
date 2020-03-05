@@ -33,7 +33,7 @@ export default class ResidencyCard extends Component {
         return (
             <li className='residency-card'>
                 <div className='image-container'>
-                        <img src={this.state.error || this.props.item.img_url ? this.props.item.img_url : 'https://www.dropbox.com/s/6yctk83lzczg443/62bolt.png'} onLoad={this.handleImageLoaded.bind(this)} onError={this.handleImageError.bind(this)} alt='pic'/>
+                        <img src={this.state.error || this.props.item.img_url ? this.props.item.img_url : 'http://placekitten.com/100/100'} onLoad={this.handleImageLoaded.bind(this)} onError={this.handleImageError.bind(this)} alt='pic'/>
                                 {this.state.imageStatus}
                     {/* <img src={this.props.item.img_url ? this.props.item.img_url : 'http://placekitten.com/100/100' } onError="imgError(this);" alt='pic' /> */}
                 </div>
