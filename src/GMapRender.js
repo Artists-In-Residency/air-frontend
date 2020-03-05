@@ -52,7 +52,6 @@ export default class Map extends React.Component{
                   }}
                 />
               ))}
-  {/* style={{background: 'red', height: '100px', width: '100px'}} */}
               {this.state.selected && (
                  <InfoWindow
                     position={{ lat:Number(this.state.selected.lat), lng:Number(this.state.selected.long) }} 
