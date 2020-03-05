@@ -69,7 +69,7 @@ export default class Home extends Component {
                     resCenter={this.state.resCenter}
                 />
                 <ul className='residency-list'>
-                    {this.state.data.map(item => <ResidencyCard user={this.props.user} item={item} key={item.id} />)}
+                    {this.state.resListings.map(item => <ResidencyCard user={this.props.user} item={item} key={item.id} />)}
                 </ul>
                 <div className="paging">
                 <button id="paging-button1" onClick={() => this.pageThing(-1)} disabled={this.state.pageNumber === 1} > LAST </button>
