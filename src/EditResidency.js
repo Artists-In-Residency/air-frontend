@@ -25,20 +25,12 @@ export default class EditResidency extends Component {
     // Form component passes back state. Function also needs event. So we need a function to eat a function.
     handleEditResidency = (residency) => async (e) => {
         e.preventDefault();
-        const URL=`${process.env.REACT_APP_DB_URL}/api/me/admin/listings/${this.props.match.params.id}`;        
-        console.log('Putting via URL: ', URL);
-        console.log('Putting: ', residency);
-        await request.put(URL, residency)
-            .set('Authorization', this.props.user.token)
-            .then((result) => {
-                // No body is returned from put
-                console.log('Put result', result);
-                this.props.history.push('/');
-            })
-            .catch((err) => { 
-                alert(err); 
-                console.log(err);
-            })       
+        const URL=`${process.env.REACT_APP_DB_URL}/users/listings/${this.props.match.params.id}`;        
+        console.log('Editing via URL: ', URL);
+        console.log('Editing: ', residency);
+        const result = await request.put(URL, residency);
+        console.log('Put results:', result.body);
+        // window.location = ('/');
     }
 
 
