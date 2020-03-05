@@ -16,8 +16,8 @@ export default class ResidencyForm extends Component {
             description: this.props.description,
             is_grant: false
     }
-    
-    render() {     
+        
+    render() {
         return (
             <form onSubmit={this.props.handleFormSubmit(this.state)}>
             <div className='form-container'>
@@ -44,8 +44,9 @@ export default class ResidencyForm extends Component {
                 <label>City
                     <input onChange={(e) => this.setState({ city: e.target.value })} value={this.state.city} />
                 </label>
-                <label>
-                    <select name="state" onChange={(e) => this.setState({ state: e.target.value })} value={this.state.state}>STATE
+                <label>State
+                    <select name="state" onChange={(e) => this.setState({ state: e.target.value })} value={this.state.state}>
+                        <option value="" selected disabled hidden>--</option>
                         <option value="AL">AL</option>
                         <option value="AK">AK</option>
                         <option value="AZ">AZ</option>
