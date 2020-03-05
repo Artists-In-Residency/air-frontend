@@ -41,9 +41,7 @@ export default class Home extends Component {
                 <div className="paging">
                 <button id="paging-button1" onClick={() => this.pageThing(-1)} disabled={this.state.pageNumber === 1} > LAST </button>
                 <button id="paging-button2" onClick={() => this.pageThing(1)} disabled={this.state.page === 12}> NEXT </button>
-                <h5>Page</h5>
                 </div>
-                {/* <Paging totalPage={this.state.totalPage}/> */}
             </div>
         )
     }
