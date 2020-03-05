@@ -4,7 +4,7 @@ import PrivateRoute from './PrivateRoute.js';
 import Header from './Header.js';
 import Home from './Home.js';
 import Login from './Login.js';
-import Favorites from './Favorites.js';
+import Bookmarks from './Bookmarks.js';
 import About from './About.js';
 import Tips from './Tips.js';
 import AddResidency from './AddResidency.js';
@@ -47,7 +47,7 @@ componentWillMount = () => {
       <div className="App">
         <Header user={this.state.user} />
         <Switch>
-          <PrivateRoute exact path='/favorites' component={Favorites} user={this.state.user}/>
+          <PrivateRoute exact path='/bookmarks' component={Bookmarks} user={this.state.user}/>
           <PrivateRoute exact path='/add' component={AddResidency} user={this.state.user} />
           <PrivateRoute exact path='/edit/:id' component={EditResidency} user={this.state.user} />
           <Route exact path='/login' render={(props) => <Login {...props} setUser={ this.setUser } user={this.state.user } />} />

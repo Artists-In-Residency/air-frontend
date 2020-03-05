@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
 import UserTableRow from './UserTableRow';
 import { getAllUsers } from './api';
-
 import './residency-card.css';
-
 
 export default class Home extends Component {
     state = {

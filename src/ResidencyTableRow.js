@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import request from 'superagent'
-
 export default class ResidencyTableRow extends Component {
 
     // Move to API?
@@ -9,16 +7,11 @@ export default class ResidencyTableRow extends Component {
         console.log('Deleting via URL: ', URL);
         console.log('COMMENTED OUT - Deleting: ', residency);
         // const result = await request.delete(URL, residency);
-        // console.log('Delete results:', result.body);
-        // window.location = ('/');
     }
 
     render() {
         return (
             <tr className='residency-row'>
-                {/* <td className='image-container'>
-                    <img src={this.props.item.img_url} alt='pic' />
-                </td> */}
                 <td>{this.props.item.id}</td>
                 <td><a href={`/listings/${this.props.item.id}`}>{this.props.item.program_name}</a></td>
                 <td className='description'>{this.props.item.description}</td>

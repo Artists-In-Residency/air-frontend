@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-//import ResidencyCard from './ResidencyCard.js';
 import List from './List.js'
 
 export default class StateSelect extends Component {
@@ -33,18 +32,7 @@ export default class StateSelect extends Component {
       });
   }
 
-  // handleChange(event) {
-  //   this.setState({selectedState: event.target.value});
-  // }
-
-  // handleSubmit(event) {
-  //   event.preventDefault();
-  //   alert('Your favorite flavor is: ' + this.state.selectedState);
-  //   this.setState({selectedState: event.target.value}) 
-  // }
-
   render() {
-    {console.log("YOOOOOOOOOOOOOFIRST",this.state.selectedState)}
     return (
     
     <>
@@ -75,18 +63,12 @@ export default class StateSelect extends Component {
             </select>
           }
 
-          {console.log("YOOOOOOOOOOOOOSECOND",this.state.selectedState)}
-
       </form>
     </div>
 
     <div>
           <List resState={this.state.selectedState} /> 
     </div>
-
-         {/*{console.log("YOOOOOOOOOOOOO",this.state.selectedState)}
-          {this.state.selectedState.map(state => <ResidencyCard item={state.state} key={state.id} />)}
-            {this.state.validationError}*/} 
   </>
     )
   }

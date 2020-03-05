@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import ResidencyCard from './ResidencyCard.js';
 import ResDetailItem from './ResDetailItem.js';
 import request from 'superagent';
 import { Link } from 'react-router-dom';
@@ -16,10 +15,7 @@ export default class ResDetail extends Component {
   } 
   
   render() {
-      console.log(this.props.match.params.id)
-      
-      const { residency } = this.state;
- 
+    const { residency } = this.state;
     return (
       <>
         <Link to={`favorites/${this.state.residency}`}>

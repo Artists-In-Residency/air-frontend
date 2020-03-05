@@ -10,23 +10,18 @@ export default class Home extends Component {
         data: [],
         totalPage: 20,
         pageNumber: 1,
-        shortData: [],
         user: {}
     }
     
     async componentDidMount() {
-        // const result = await getAllResidencies();
         const result = await getPagedResidencies(1);
         this.setState({ data: result });
-        // this.setState({ shortData: result.slice(0, 3) });
     }
 
     async pageThing(number) {
-        // const result = await getAllResidencies();
         await this.setState({ pageNumber: this.state.pageNumber + number });
         const result = await getPagedResidencies(this.state.pageNumber);
         this.setState({ data: result });
-        // this.setState({ shortData: result.slice(0, 3) });
         const userFromLocalStorage = getUserFromLocalStorage();
         if (userFromLocalStorage) {
             this.setState({ user: userFromLocalStorage });

@@ -39,9 +39,12 @@ export default class AddResidency extends Component {
         //create URL string for posting new resident route
         const URL=`${process.env.REACT_APP_DB_URL}/api/me/listings`;        
         //post that newly constructed residency into the database yo! 
-        const result = await request
+        await request
             .post(URL, residency)
-            .set('Authorization', this.props.user.token);
+            .set('Authorization', this.props.user.token)
+            .catch((err) => {
+                alert(err);
+            });
         //thank the user for their contribution and redirect them back home
         alert('New Residency Added! Thank You!')
         window.location = ('/');
