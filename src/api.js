@@ -90,7 +90,6 @@ export const handleFavorite = async (item, user) => {
         .post(URL, newObj)
         .set('Authorization', user.token)
         .then((result) => {
-            // this.setState({ data: result.body })
             console.log('handleFavorite result', result);
         })
         .catch((err) => {

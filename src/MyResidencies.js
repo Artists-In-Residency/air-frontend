@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
-import ResidencyTableRow from './ResidencyTableRow';
-import { getAllResidencies } from './api';
+import React, { Component } from 'react';
+import request from 'superagent';
+import ResidencyCard from './ResidencyCard';
 
 import './residency-card.css';
 
@@ -8,38 +8,33 @@ import './residency-card.css';
 export default class Home extends Component {
     state = {
         data: [],
-        shortData: [],
-    }
+        user: {}
+   }
 
     async componentDidMount() {
-        const result = await getAllResidencies();
-        this.setState({ data: result });
-        this.setState({ shortData: result.slice(0, 19) });
+        const URL = `${process.env.REACT_APP_DB_URL}/api/me/listings`;
+        await request.get(URL)
+            .set('Authorization', this.props.user.token)
+            .then((results) => {
+                // No body is returned from put
+                console.log('Get results', results);
+                this.setState({ data: results.body });
+            })
+            .catch((err) => { 
+                alert(err); 
+                console.log(err);
+            })       
     }
 
     render() {
         return (
             <div>
-                <p>Number of records: {this.state.data.length}</p>
-                <table className='residency-table'>
-                    <thead>
-                        <tr>
-                            <th className='table-small-col'>ID</th>
-                            <th>Program Name</th>
-                            <th>Description</th>
-                            <th>Art Medium</th> 
-                            <th>Address</th>
-                            <th>Phone</th>
-                            <th>Email</th>
-                            <th className='table-small-col'>Is a grant</th>
-                            <th className='table-small-col'>Edit</th>
-                            <th className='table-small-col'>Delete</th>
-                        </tr>                        
-                    </thead>
-                    <tbody>
-                        {this.state.shortData.map(item => <ResidencyTableRow item={item} key={item.id} />)}
-                    </tbody>                        
-                </table>
+                <h3>Residencies I've Contributed</h3>
+                <div className='card-container'>
+                <ul className='residency-list'>
+                    {this.state.data.map(item => <ResidencyCard item={item} user={this.props.user} buttonShould={'edit'} key={item.id} />)}
+                </ul>
+                </div>
             </div>
         )
     }

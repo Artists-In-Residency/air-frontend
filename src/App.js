@@ -9,6 +9,7 @@ import About from './About.js';
 import Tips from './Tips.js';
 import AddResidency from './AddResidency.js';
 import EditResidency from './EditResidency.js';
+import MyResidencies from './MyResidencies.js';
 import ResidencyTable from './ResidencyTable.js';
 import UserTable from './UserTable.js';
 import GMap from './GMap.js';
@@ -51,6 +52,7 @@ componentWillMount = () => {
           <PrivateRoute exact path='/bookmarks' component={Bookmarks} user={this.state.user}/>
           <PrivateRoute exact path='/add' component={AddResidency} user={this.state.user} />
           <PrivateRoute exact path='/edit/:id' component={EditResidency} user={this.state.user} />
+          <PrivateRoute exact path='/my/listings/' component={MyResidencies} user={this.state.user} />
           <Route exact path='/login' render={(props) => <Login {...props} setUser={ this.setUser } user={this.state.user } />} />
           <Route exact path='/about' component={About} />
           <Route exact path='/tips' component={Tips} />
