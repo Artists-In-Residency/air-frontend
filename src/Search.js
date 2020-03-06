@@ -29,11 +29,11 @@ export default class Search extends Component {
             <div className='search'>
                 <form onSubmit={this.props.handleSearch(this.state.input)}>
                   <input value={this.state.input} onChange={(e) => this.setState({ input: e.target.value })} />
-                  <button disabled={this.state.loading}>Search!</button>
+                  <button disabled={this.state.loading}>Search</button>
                 </form>
 
                 <form>
-                    <label>State:
+                    <label>State: 
                         <select className="dropdown"
                             name="state" 
                             value={this.state.stateInput} 
