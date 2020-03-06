@@ -8,7 +8,7 @@
   background-color: #282c34;
 }
 
-.button {
+.search button {
 	box-shadow: 3px 4px 0px 0px rgb(37, 36, 36);
 	background:linear-gradient(to bottom, black 5%, black 100%);
 	background-color: rgb(26, 24, 24);
@@ -25,7 +25,7 @@
   margin-left: 5px;
 }
 
-  .input {
+.search input {
     padding: 0;
     height: 38px;
     width: 225px;
