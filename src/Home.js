@@ -6,6 +6,8 @@ import SelectState from './SelectState';
 import request from 'superagent';
 import { getPagedResidencies, getUserFromLocalStorage, getAllResidencies } from './api';
 
+
+
 export default class Home extends Component {
     state = {
         data: [],
@@ -36,6 +38,7 @@ export default class Home extends Component {
         }          
     }
 
+<<<<<<< HEAD
     handleSearch = (input) => async (e) => {
         e.preventDefault();
         this.setState({ loading: true });
@@ -48,15 +51,25 @@ export default class Home extends Component {
         });
         console.log(this.state.resListings)
     }
+=======
+
+>>>>>>> scott
 
     render() {
         // console.log('Home props:', this.props);
         return (
             <div>
+<<<<<<< HEAD
                 <Search handleSearch={this.handleSearch}/>
                 <SelectState />
                 {/* <Search user={this.props.user} /> */}
                 <GMap resListings={this.state.resListings} />
+=======
+                <div className="search">
+                    <Search user={this.props.user} />
+                </div>
+                <Map />
+>>>>>>> scott
                 <ul className='residency-list'>
                     {this.state.data.map(item => <ResidencyCard user={this.props.user} item={item} key={item.id} />)}
                 </ul>

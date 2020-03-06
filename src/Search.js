@@ -1,14 +1,13 @@
   
 import React, { Component } from 'react'
 import List from './List';
-import request from 'superagent';
+// import request from 'superagent';
+import './search.css';
 
 export default class Search extends Component {
     // initialize state
     state = { 
         resState: [], 
-        // favorites: [],  
-        // input: '', 
     }
 
     // handleSearch = async (e) => {
@@ -35,8 +34,7 @@ export default class Search extends Component {
                     ? "loading!!"
                     : <List 
                     resState={this.state.resState} user={this.props.user}/> 
-                    //favorites={this.state.favorites}
-                    //user={this.props.user} /> 
+
                   }  
               
             </div>
