@@ -32,9 +32,13 @@ export default class Search extends Component {
                   <button disabled={this.state.loading}>Search!</button>
                 </form>
 
-                <form onSubmit={this.props.handleState(this.state.input)}>
+                <form>
                     <label>State:
-                        <select name="state" value={this.state.input} onChange={(e) => this.setState({ input: e.target.value })}>
+                        <select 
+                            name="state" 
+                            value={this.state.stateInput} 
+                            onChange={(e) => this.props.handleState(e.target.value)}
+                        >
                             <option value="" selected disabled hidden>--</option>
                             <option value="AL">AL</option>
                             <option value="AK">AK</option>
