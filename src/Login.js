@@ -27,7 +27,7 @@ export default class Login extends Component {
             this.props.history.push('/');
         })
         .catch((err) => { 
-            alert(err); 
+            alert('Incorrect Username / Password'); 
             console.log(err);
         })       
 }
@@ -45,7 +45,7 @@ export default class Login extends Component {
                 this.props.history.push('/');
             })
             .catch((err) => { 
-                alert(err); 
+                alert('Incorrect Username / Password'); 
                 console.log(err);
             })       
     }

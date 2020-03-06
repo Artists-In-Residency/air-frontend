@@ -57,10 +57,9 @@ export default class Home extends Component {
         console.log(this.state.resListings)
     }
 
-    handleState = (input) => async (e) => {
-        e.preventDefault();
-        console.log(input)
-        const data = await request.get(`${process.env.REACT_APP_DB_URL}/listings/state/${input}`)
+    handleState = async (stateValue) => {
+        console.log('e', stateValue)
+        const data = await request.get(`${process.env.REACT_APP_DB_URL}/listings/state/${stateValue}`)
         this.setState({
             resState: data.body,
             resListings: data.body,
