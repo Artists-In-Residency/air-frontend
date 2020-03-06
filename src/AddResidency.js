@@ -26,8 +26,7 @@ export default class AddResidency extends Component {
         
         //constructing an address to pass to the geocode api
         const address = (residency.address + '+' + residency.city + '+' + residency.state + '+' + residency.zip_code);
-        
-        console.log('address: ', address);
+
         if (address === '+++') {
             alert('Please enter an address');
             return;
