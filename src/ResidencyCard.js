@@ -37,6 +37,21 @@ export default class ResidencyCard extends Component {
             })       
     }
 
+    handleEdit = async () => {
+        window.location=(`/edit/${this.props.item.id}`);
+    }
+
+    // renderButtonSwitch (buttonShould) {
+    //     switch (buttonShould) {
+    //         case 'delete': return <button onClick={this.handleDelete}>Remove from Bookmarks</button>;
+    //         case 'edit': { this.setState({buttonText: 'Edit'}); 
+    //                         return (<button onClick={this.handleEdit}>{this.state.buttonText}</button>);
+    //                         }
+    //         default: return (<button onClick={() => { handleFavorite(this.props.item, this.props.user); this.setState({ buttonText : 'Added!' }) }}>{this.state.buttonText}</button>) 
+    //     }
+    // }
+     
+
     render() {
         return (
             <li className='residency-card'>
@@ -72,10 +87,11 @@ export default class ResidencyCard extends Component {
                         <br></br>
                     </div>
                 }
+                {/* Conditional button functionality based on passed state */}
                 <div className='bookmark-button'>
-                { this.props.buttonShould === 'delete' 
-                    ? <button className="button" onClick={this.handleDelete}>Remove Bookmark</button> 
-                    : <button className="button" onClick={() => { handleFavorite(this.props.item, this.props.user); this.setState({ buttonText : 'Added!' }) }}>{this.state.buttonText}</button> }
+                {this.props.buttonShould === 'delete' && <button onClick={this.handleDelete}>Remove Bookmark</button>}
+                {this.props.buttonShould === 'edit' && <button onClick={this.handleEdit}>Edit</button>}
+                {!this.props.buttonShould && <button onClick={ () => { handleFavorite(this.props.item, this.props.user); this.setState({ buttonText : 'Added!' });} }>{this.state.buttonText}</button>}
                 </div>
             </li>
         )

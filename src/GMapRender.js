@@ -1,6 +1,5 @@
 import React from 'react'
 import { GoogleMap, withScriptjs, withGoogleMap, Marker, InfoWindow } from "react-google-maps";
-import { getAllResidencies } from './api.js'
 import GMapStyle from './GMapStyle.js'
 import './GMapRender.css';
 
@@ -10,25 +9,29 @@ export default class Map extends React.Component{
         selected: null,
         resListings: []
     }
-
+    async componentDidMount() {
+      console.log('>>>>>>>>>MOUNTING<<<<<<<<<')
+  }
     setSelected = (selected) =>{
         this.setState({selected})
     }
 
-    async componentDidMount(){
-        const allListings = await getAllResidencies();
-        this.setState({resListings: allListings})
-        console.log(this.state.resListings)
-    }
-
     render(){
+      console.log(this.props.resCenter)
     
         return <GoogleMap 
               defaultZoom={4.5} 
-              defaultCenter={{lat:37.9283459, lng:-94.5794797}}
+              defaultCenter={{
+                  lat:37.9283459, 
+                  lng:-94.5794797
+                }}
+                // center={{
+                //   lat:this.props.resCenter.lat, 
+                //   lng:this.props.resCenter.lng
+                // }}
               defaultOptions={{styles: GMapStyle}} 
             >
-              {this.state.resListings.map((res =>
+              {this.props.resListings.map((res =>
   
                 <Marker 
                   key={Math.random()}

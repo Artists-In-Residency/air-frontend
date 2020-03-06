@@ -1,41 +1,53 @@
+/* HEADER */
+
 .App-header {
   background-color: #282c34;
   /* min-height: 100vh; */
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  margin-bottom: 20px;
 }
 
-.App-link {
+.App-header h1 {
   color: #61dafb;
 }
 
+.App-header nav a {
+  opacity: 0.9
+}
 /* mouse over link */
 a:hover {
   color: hotpink;
   text-decoration: none;
 }
 
-body {
+header nav {
+  background-color: rgba(0,0,0,.2);
+  padding: 5px 0;
   text-align: left;
-  margin: 0 auto;
 }
 
-header {
-  padding-bottom: 10px;
+header nav .welcome {
+  font-size: 0.85em;
 }
 
 header a {
-  margin: 20px;
+  margin: 10px 20px;
   color: white;
   text-decoration: none;
 }
 
 header a:hover {
-  text-decoration: underline;
+  color: #61dafb;
+  text-decoration: none;
+}
+
+body {
+  text-align: left;
+  margin: 0 auto;
+  background: #eee;
 }
 
 
@@ -119,4 +131,38 @@ label input {
   position: absolute;
   top: 15px;
   right: 15px
+}
+
+/* BUTTONS */
+button {
+  display: inline-block;
+  border: none;
+  padding: .5rem 1rem;
+  margin: 0;
+  border-radius: 3px;
+  text-decoration: none;
+  background: #0069ed;
+  color: #ffffff;
+  font-family: sans-serif;
+  font-size: .8rem;
+  cursor: pointer;
+  text-align: center;
+  transition: background 250ms ease-in-out, 
+              transform 150ms ease;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+button:hover,
+button:focus {
+  background: #0053ba;
+}
+
+button:focus {
+  outline: 1px solid #fff;
+  outline-offset: -4px;
+}
+
+button:active {
+  transform: scale(0.99);
 }

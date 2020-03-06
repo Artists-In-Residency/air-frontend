@@ -16,17 +16,19 @@ export default class ResidencyForm extends Component {
             description: this.props.description,
             is_grant: false
     }
-    
-    render() {     
+        
+    render() {
         return (
             <form onSubmit={this.props.handleFormSubmit(this.state)}>
             <div className='form-container'>
                 <label>Program Name
                     <input onChange={(e) => this.setState({ program_name: e.target.value })} value={this.state.program_name} />                        
                 </label>
-                <div className='img_url-container'>
-                    <img src={this.props.img_url} alt={this.props.program_name} />
-                </div>
+                { this.props.edit &&
+                    <div className='img_url-container'>
+                        <img src={this.props.img_url} alt={this.props.program_name} />
+                    </div>
+                }
                 <label>Image URL
                     <input onChange={(e) => this.setState({ img_url: e.target.value })} value={this.state.img_url} />
                 </label>
@@ -42,8 +44,9 @@ export default class ResidencyForm extends Component {
                 <label>City
                     <input onChange={(e) => this.setState({ city: e.target.value })} value={this.state.city} />
                 </label>
-                <label>
-                    <select name="state" onChange={(e) => this.setState({ state: e.target.value })} value={this.state.state}>STATE
+                <label>State
+                    <select name="state" onChange={(e) => this.setState({ state: e.target.value })} value={this.state.state}>
+                        <option value="" selected disabled hidden>--</option>
                         <option value="AL">AL</option>
                         <option value="AK">AK</option>
                         <option value="AZ">AZ</option>

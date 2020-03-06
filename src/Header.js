@@ -8,11 +8,8 @@ export default class Header extends Component {
     render() {
         return (
             <header className="App-header">
-                <Link to='/'><h1>Artist Residencies Listings</h1></Link>
-                <MainNav />
-                <div className='welcome'>
-                {this.props.user.displayName ? 'Hello ' + this.props.user.displayName + '!' : '' }
-                </div>
+                <Link to='/'><h1>AIRSupply</h1></Link>
+                <MainNav user={this.props.user} />
             </header>  
         )
     }
