@@ -41,7 +41,7 @@ export default class ResidencyCard extends Component {
             .set('Authorization', this.props.user.token)
             .then((results) => {
                 console.log('Delete results', results);
-                window.location=('/favorites');
+                window.location=('/bookmarks');
             })
             .catch((err) => { 
                 alert(err); 
