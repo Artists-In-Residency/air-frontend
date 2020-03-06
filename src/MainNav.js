@@ -5,7 +5,7 @@ export default class MainNav extends Component {
     render() {
         return (
                 <nav>
-                    <Link to='/' onClick={() => window.location.reload()} >Home</Link>
+                    <Link to='/'>Home</Link>
                     <Link to='/tips'>Tips</Link>
                     <Link to='/about'>About</Link>
                     {this.props.user && <Link to='/login'>Login</Link>}
