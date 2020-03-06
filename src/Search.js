@@ -34,7 +34,7 @@ export default class Search extends Component {
 
                 <form>
                     <label>State:
-                        <select 
+                        <select className="dropdown"
                             name="state" 
                             value={this.state.stateInput} 
                             onChange={(e) => this.props.handleState(e.target.value)}

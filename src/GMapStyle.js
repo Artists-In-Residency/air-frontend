@@ -2,7 +2,7 @@ export default [
     {
         "stylers": [
             {
-                "hue": "#007fff"
+                "hue": "#61dafb"
             },
             {
                 "saturation": 89

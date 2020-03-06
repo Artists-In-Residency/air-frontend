@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import './search.css';
 
 export default class ResidencyForm extends Component {
 
@@ -45,7 +46,7 @@ export default class ResidencyForm extends Component {
                     <input onChange={(e) => this.setState({ city: e.target.value })} value={this.state.city} />
                 </label>
                 <label>State
-                    <select name="state" onChange={(e) => this.setState({ state: e.target.value })} value={this.state.state}>
+                    <select className = "dropdown" name="state" onChange={(e) => this.setState({ state: e.target.value })} value={this.state.state}>
                         <option value="" selected disabled hidden>--</option>
                         <option value="AL">AL</option>
                         <option value="AK">AK</option>
