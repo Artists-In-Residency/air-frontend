@@ -3,12 +3,20 @@
 * {
   font-family: 'Noto', sans-serif;
 }
+
+.airSupplyHeader{
+  margin-top: 15px;
+  color: black;
+  text-align: center;
+}
+
 .devs {
   text-align: justify;
   display: flex;
   justify-content: center;
   margin: 10px;
 }
+
 
 .dev {
   font-size: 15px;
@@ -26,15 +34,15 @@
 
 .team-dev img {
   display: block;
-  width: 2%;
+  width: 3%;
   border-radius: 90%;
   margin: 0 auto;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
 .links img{
   /* display: block;*/
-  width: 9%;
+  width: 12%;
   border-radius: 90%;
   margin: 0 auto;
   margin-bottom: 5px;
