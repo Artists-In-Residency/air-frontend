@@ -84,10 +84,7 @@ export default class ResidencyCard extends Component {
                     </div>
                 }
                 <div className='card-section-website'>
-                    {/* <h4>Contact Info</h4> */}
                     <p><a href={this.props.item.link_url} target="_blank" rel="noopener noreferrer">Website</a></p>
-                    {/* {this.props.item.phone && <p>{this.props.item.phone}</p> }
-                    {this.props.item.email && <p>{this.props.item.email}</p> } */}
                 </div>
                 {this.props.item.is_grant && 
                     <div className="card-section-grant">
