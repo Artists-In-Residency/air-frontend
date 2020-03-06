@@ -38,10 +38,10 @@ export default class Home extends Component {
                 <ul className='residency-list'>
                     {this.state.data.map(item => <ResidencyCard user={this.props.user} item={item} key={item.id} />)}
                 </ul>
-                <div className="paging">
+                {/* <div className="paging">
                 <button className="button" id="paging-button1" onClick={() => this.pageThing(-1)} disabled={this.state.pageNumber === 1} > LAST </button>
                 <button className="button" id="paging-button2" onClick={() => this.pageThing(1)} disabled={this.state.page === 12}> NEXT </button>
-                </div>
+                </div> */}
             </div>
         )
     }
