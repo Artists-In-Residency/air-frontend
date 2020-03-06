@@ -90,7 +90,6 @@ export default class Search extends Component {
                             <option value="WI">WI</option>
                             <option value="WY">WY</option>
                         </select>
-                        <button disabled={this.state.loading}>Search!</button>
                     </label>
                     </form>
                   {
@@ -101,8 +100,7 @@ export default class Search extends Component {
 
                   }  
             </div>
-        )
-    }
+        ) }
 }
  
 
