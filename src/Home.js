@@ -57,12 +57,29 @@ export default class Home extends Component {
         console.log(this.state.resListings)
     }
 
+    handleState = (input) => async (e) => {
+        e.preventDefault();
+        console.log(input)
+        const data = await request.get(`${process.env.REACT_APP_DB_URL}/listings/state/${input}`)
+        this.setState({
+            resState: data.body,
+            resListings: data.body,
+            // resCenter:{
+            //     lat: data.body[0].lat,
+            //     lng: data.body[0].long
+            // },
+            loading: false
+        });
+    }
+
     render() {
         // console.log('Home props:', this.props);
         return (
             <div>
-                <Search handleSearch={this.handleSearch}/>
-                <SelectState />
+                <Search 
+                    handleSearch={this.handleSearch}
+                    handleState={this.handleState}
+                />
                 {/* <Search user={this.props.user} /> */}
                 <GMap 
                     resListings={this.state.resListings} 
