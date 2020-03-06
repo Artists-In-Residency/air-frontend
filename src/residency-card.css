@@ -29,6 +29,10 @@
     margin-bottom: 20px;
 }
 
+#link a {
+    color: black;
+}
+
 
 
 /* ---------- */
@@ -56,9 +60,15 @@
     padding: 15px;
     border: 2px dotted #ddd;
     text-align: left;
-    background-color: #61dafb
-}
+    /* background-color: #61dafb */
+     
+    background-color: #cfe5fd
+    
+    /* unvisited link */
+    }
 
+
+   
 .card-section {
     margin: 15px 0;
 }

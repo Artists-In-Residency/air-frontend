@@ -56,7 +56,7 @@ export default class ResDetailItem extends Component {
                     </div>
                 }
                     </div>
-                    <p><a href={this.state.residency.link_url} target="_blank" rel="noopener noreferrer">Program Website</a></p>
+                    <p><a tag="link" href={this.state.residency.link_url} target="_blank" rel="noopener noreferrer">Program Website</a></p>
                     <button onClick={ () => { handleFavorite(this.state.residency, this.props.user); this.setState({ buttonText : 'Added!' });} }>{this.state.buttonText}</button>
                 </div>
             </div>

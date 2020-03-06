@@ -20,7 +20,7 @@ export default class Map extends React.Component{
       console.log(this.props.resCenter)
     
         return <GoogleMap 
-              defaultZoom={4.5} 
+              defaultZoom={4} 
               defaultCenter={{
                   lat:37.9283459, 
                   lng:-94.5794797
@@ -55,10 +55,13 @@ export default class Map extends React.Component{
                   <a href={`/listings/${this.state.selected.id}`}>
                     <h4>{this.state.selected.program_name}</h4>
                   </a>
+                    <p className="infoImage"><img src={this.state.selected.img_url} alt ="resImg"/></p>
                     <p className="infoDescription">{this.state.selected.description}</p>
-                  <a href={this.state.selected.link_url} target="_blank" rel="noopener noreferrer">
-                    <h4>Website</h4>
-                  </a>
+                    <div>
+                    <p className="infoCity">{this.state.selected.address}<br></br>
+                        {this.state.selected.city}{this.state.selected.state &&<> {this.state.selected.state}</>} {this.state.selected.zip_code &&<> {this.state.selected.zip_code}</>}{this.state.selected.country &&<> - {this.state.selected.country}</>} </p>
+                  <a href={this.state.selected.link_url} target="_blank" rel="noopener noreferrer">Website</a>
+                  </div>
                   
                 </div>
                 </InfoWindow>

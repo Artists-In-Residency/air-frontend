@@ -3,7 +3,8 @@
   font-family: 'Bellota Text', cursive;
 }
 .App-header {
-  background-color: #282c34;
+  /* background-color: #282c34; */
+  background-color: #fcfbfb;
   /* min-height: 100vh; */
   display: flex;
   flex-direction: column;
@@ -25,7 +26,8 @@ a:hover {
 }
 
 header nav {
-  background-color: rgba(0,0,0,.2);
+  background-color: #fcfbfb;
+  /* background-color: rgba(0,0,0,.2); */
   padding: 5px 0;
   text-align: left;
 }
@@ -36,7 +38,7 @@ header nav .welcome {
 
 header a {
   margin: 10px 20px;
-  color: white;
+  /* color: white; */
   text-decoration: none;
 }
 
@@ -44,11 +46,14 @@ header a {
   margin-top: -25px;
   margin-left: 20px;
   margin-bottom: 15px;
-  color: white;
+  /* color: white; */
+  color: black;
+  /* color: #61dafb; */
 }
 
 header a:hover {
-  color: #61dafb;
+  /* color: #61dafb; */
+  color: hotpink;
   text-decoration: none;
 }
 
@@ -80,6 +85,8 @@ label {
   text-align: right;
   margin: 5px auto;
   max-width: 375px;
+  color: white;
+  margin-left: 10px;
 }
 
 label input {
@@ -130,6 +137,28 @@ label input {
   padding-top: 30px;
   border-top: 1px solid black;
 }
+
+/* #infoImage {
+  flex-wrap: wrap;
+
+} */
+
+.gm-style img {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: auto;
+  max-width: 200px;
+  max-width: 200px;
+}
+
+/* .gm-style {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: auto;
+} */
+
 
 #maps {
   height: 100%;
