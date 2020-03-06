@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import './tips.css'
 
-
 export default class Tips extends Component {
     render() {
         return (
