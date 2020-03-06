@@ -61,8 +61,8 @@ export default class Home extends Component {
                     {this.state.data.map(item => <ResidencyCard user={this.props.user} item={item} key={item.id} />)}
                 </ul>
                 <div className="paging">
-                <button id="paging-button1" onClick={() => this.pageThing(-1)} disabled={this.state.pageNumber === 1} > LAST </button>
-                <button id="paging-button2" onClick={() => this.pageThing(1)} disabled={this.state.page === 12}> NEXT </button>
+                <button className="button" id="paging-button1" onClick={() => this.pageThing(-1)} disabled={this.state.pageNumber === 1} > LAST </button>
+                <button className="button" id="paging-button2" onClick={() => this.pageThing(1)} disabled={this.state.page === 12}> NEXT </button>
                 </div>
             </div>
         )
