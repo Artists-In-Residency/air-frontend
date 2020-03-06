@@ -7,18 +7,42 @@ export default class Map extends React.Component{
  
     state = {
         selected: null,
-        resListings: []
+        imageStatus: '',
+        error: false,
+        resListings: [],
+        placeholderImg: ['../assets/bg1.jpg', '../assets/bg2.jpg', '../assets/bg3.jpg', '../assets/bg4.jpg'] 
     }
+
+    getRandomPlaceholder = () => {
+      const index = Math.floor(Math.random() * this.state.placeholderImg.length);
+      const placeholder = this.state.placeholderImg[index];
+      return placeholder;
+    }
+
+    capitalize = (str) => {
+        if (typeof str !== 'string') return ''
+        return str.charAt(0).toUpperCase() + str.slice(1)
+    }
+
+    handleImageLoaded() {
+      this.setState({ imageStatus: "", error: false });
+    }
+
+    handleImageError() {
+      this.setState({ imageStatus: "", error: true });
+    }
+
     async componentDidMount() {
       console.log('>>>>>>>>>MOUNTING<<<<<<<<<')
-  }
+    }
+
     setSelected = (selected) =>{
         this.setState({selected})
     }
 
     render(){
-      console.log(this.props.resCenter)
-    
+      console.log(this.props.resCenter);
+  
         return <GoogleMap 
               defaultZoom={4} 
               defaultCenter={{
@@ -39,7 +63,14 @@ export default class Map extends React.Component{
                   }}
                   onClick={() => {
                     this.setSelected(res);
-                  }}
+                    let source;
+                    if (this.state.error || !this.state.selected.img_url) {
+                        source = this.getRandomPlaceholder();
+                    } else {
+                        source = this.state.selected.img_url;
+                    }
+                    this.setState({randomImage : source}) 
+                                }}
                   icon={{
                     url: "./artpinz.png",
                     scaledSize: new window.google.maps.Size(33, 45)
@@ -52,15 +83,15 @@ export default class Map extends React.Component{
                     onCloseClick={() => {this.setSelected(null);}}
                   >
                 <div className="infoWindow" >
-                  <a href={`/listings/${this.state.selected.id}`}>
-                    <h4>{this.state.selected.program_name}</h4>
-                  </a>
-                    <p className="infoImage"><img src={this.state.selected.img_url} alt ="resImg"/></p>
-                    <p className="infoDescription">{this.state.selected.description}</p>
+                    <p className="infoImage"><img src={this.state.randomImage} onLoad={this.handleImageLoaded.bind(this)} onError={this.handleImageError.bind(this)} alt='pic'/>
+                                {this.state.imageStatus}</p>
+                  
+                    <h4><a href={`/listings/${this.state.selected.id}`}>{this.state.selected.program_name}</a></h4>
+                    <p className="infoDescription">{this.capitalize(this.state.selected.description)}</p>
+                  
                     <div>
                     <p className="infoCity">{this.state.selected.address}<br></br>
-                        {this.state.selected.city}{this.state.selected.state &&<> {this.state.selected.state}</>} {this.state.selected.zip_code &&<> {this.state.selected.zip_code}</>}{this.state.selected.country &&<> - {this.state.selected.country}</>} </p>
-                  <a href={this.state.selected.link_url} target="_blank" rel="noopener noreferrer">Website</a>
+                        {this.state.selected.city}{this.state.selected.state &&<> {this.state.selected.state}</>} {this.state.selected.zip_code &&<> {this.state.selected.zip_code}</>}{this.state.selected.country &&<> - {this.state.selected.country}</>} - <a href={this.state.selected.link_url} target="_blank" rel="noopener noreferrer">Website</a></p>
                   </div>
                   
                 </div>

@@ -1,9 +1,13 @@
-p{
-    text-align: left;
-}
-.infoWindow{
+.infoWindow {
     text-align: center;
-    width:350px;
-    height:250px;
+    max-width:350px;
+    padding: 20px;
 }
 
+.infoWindow p {
+    margin-bottom: 10px;
+}
+
+.infoWindow div {
+    padding: 0;
+}
