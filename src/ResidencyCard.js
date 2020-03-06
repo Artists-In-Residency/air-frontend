@@ -93,7 +93,7 @@ export default class ResidencyCard extends Component {
                 </div>
                 {this.props.item.is_grant && 
                     <div className="card-section-grant">
-                        <h4>Grant Funding</h4>
+                        <h4><b>Grant Funding</b></h4>
                         <br></br>
                     </div>
                 }
