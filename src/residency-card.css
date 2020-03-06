@@ -56,9 +56,8 @@
     padding: 15px;
     border: 2px dotted #ddd;
     text-align: left;
-    background-color: rgb(188, 237, 174)
+    background-color: #61dafb
 }
-
 
 .card-section {
     margin: 15px 0;
@@ -86,14 +85,14 @@
     margin-bottom: 15px;
     height: 150px;
     overflow: hidden;
-    background-color: #eee;
     text-align: center;
 }
 
 .residency-card .image-container img {
     height: 100%;
     width: 100%;
-    object-fit: cover;
+    object-fit: contain;
+    padding: 10px;
 }
 
 .residency-card {
@@ -101,11 +100,12 @@
     flex-direction: column;
     justify-content: space-between;
 }
-/* 
-.residency-card .card-section-grant {
-    height:8%;
-}
 
+.residency-card .card-section-grant {
+    display: flex;
+    justify-content: center;
+}
+/*
 .residency-card .card-section-program-name {
     height:70px;
     margin-bottom: 20px;
@@ -123,20 +123,16 @@
 .residency-card .card-section-city-state-country {
     height:10%;
 }
+*/
 .residency-card .card-section-website {
-    height:5%;
+    display: flex;
+    justify-content: center;
 }
 
 .residency-card .bookmark-button {
-    height:15%;
-    margin: 5px;
-} */ 
-
-
-
-
-
-
+    display: flex;
+    justify-content: center;
+}
 
 /* ---------- */
 /* TABLE COMPONENT */
