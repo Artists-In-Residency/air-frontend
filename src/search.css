@@ -16,35 +16,31 @@
   box-shadow: 3px 2px 0px 0px rgb(118, 222, 250);
   background: linear-gradient(to bottom, white 5%, white 100%);
   background-color: rgb(255, 255, 255);
-  /* border-radius: 18px; */
   border: 1px dotted;
   cursor: pointer;
-  color: #84e1fa;
+  color: #0083ac;
   /* font-family: Arial; */
   font-family: 'Bellota Text', cursive;
   font-size: 17px;
   padding: 7px 25px;
   text-decoration: none;
-  text-shadow: 0px 1px 0px;
   margin-bottom: 12px;
   margin-left: 5px;
 }
 
+.search button:hover {
+  color: white
+}
+
 .search input {
-    padding: 0;
-    height: 38px;
+    padding: 0 5px;
+    height: 40px;
     width: 225px;
-    position: relative;
-    left: 0;
-    outline: none;
-    border-radius: 15px;
     border: 1px solid #cdcdcd;
     border-color: rgba(0, 0, 0, .15);
     background-color: whitesmoke;
     font-size: 16px;
-    margin-top: 7px;
-    margin-bottom: 12px;
-    margin-right: 5px;
+    margin: 5px 5px 12px 0px;
 }
 
 
@@ -55,7 +51,7 @@
   /* border-radius: 18px; */
   border: 1px dotted;
   cursor: pointer;
-  color: #84e1fa;
+  color: #0083ac;
   /* font-family: Arial; */
   font-family: 'Bellota Text', cursive;
   font-size: 17px;
@@ -66,6 +62,14 @@
   width: 60px;
   /* margin-bottom: 12px;
   margin-left: 5px; */
+}
+
+.search form {
+  margin-left: 20px;
+}
+
+.search form select {
+  margin-left: 5px;
 }
 
 /* .dropdown-content {
