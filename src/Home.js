@@ -6,8 +6,6 @@ import SelectState from './SelectState';
 import request from 'superagent';
 import { getPagedResidencies, getUserFromLocalStorage, getAllResidencies } from './api';
 
-
-
 export default class Home extends Component {
     state = {
         data: [],
@@ -16,7 +14,11 @@ export default class Home extends Component {
         resListings: [],
         user: {},
         resState: [],
-        resCenter:[],
+        resCenter:{
+            lat:'' ,
+            lng:'',
+            zoom:4.5
+        },
         loading: false
     }
     
@@ -38,7 +40,6 @@ export default class Home extends Component {
         }          
     }
 
-<<<<<<< HEAD
     handleSearch = (input) => async (e) => {
         e.preventDefault();
         this.setState({ loading: true });
@@ -47,35 +48,32 @@ export default class Home extends Component {
         this.setState({
             resState: data.body,
             resListings: data.body,
+            // resCenter:{
+            //     lat: data.body[0].lat,
+            //     lng: data.body[0].long
+            // },
             loading: false
         });
         console.log(this.state.resListings)
     }
-=======
-
->>>>>>> scott
 
     render() {
         // console.log('Home props:', this.props);
         return (
             <div>
-<<<<<<< HEAD
                 <Search handleSearch={this.handleSearch}/>
                 <SelectState />
                 {/* <Search user={this.props.user} /> */}
-                <GMap resListings={this.state.resListings} />
-=======
-                <div className="search">
-                    <Search user={this.props.user} />
-                </div>
-                <Map />
->>>>>>> scott
+                <GMap 
+                    resListings={this.state.resListings} 
+                    resCenter={this.state.resCenter}
+                />
                 <ul className='residency-list'>
-                    {this.state.data.map(item => <ResidencyCard user={this.props.user} item={item} key={item.id} />)}
+                    {this.state.resListings.map(item => <ResidencyCard user={this.props.user} item={item} key={item.id} />)}
                 </ul>
                 <div className="paging">
-                <button id="paging-button1" onClick={() => this.pageThing(-1)} disabled={this.state.pageNumber === 1} > LAST </button>
-                <button id="paging-button2" onClick={() => this.pageThing(1)} disabled={this.state.page === 12}> NEXT </button>
+                <button className="button" id="paging-button1" onClick={() => this.pageThing(-1)} disabled={this.state.pageNumber === 1} > LAST </button>
+                <button className="button" id="paging-button2" onClick={() => this.pageThing(1)} disabled={this.state.page === 12}> NEXT </button>
                 </div>
             </div>
         )
