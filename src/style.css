@@ -175,3 +175,7 @@ button:focus {
 button:active {
   transform: scale(0.99);
 }
+
+#top-state {
+  color:white;
+}
