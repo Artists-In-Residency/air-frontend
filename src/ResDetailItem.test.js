@@ -1,10 +1,10 @@
 import React from 'react';
-import App from './App.js';
+import ResDetailItem from './ResDetailItem.js';
 import renderer from 'react-test-renderer';
 
 it('header renders correctly', () => {
   const tree = renderer
-    .create(<App/>)
+    .create(<ResDetailItem/>)
     .toJSON();
   expect(tree).toMatchSnapshot();
 });

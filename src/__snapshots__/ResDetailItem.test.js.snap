@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`header renders correctly 1`] = `
+<div
+  className="residency-detail"
+>
+  <div
+    className="detail-container"
+  >
+    <div
+      className="image-container"
+    >
+      <img
+        className="detail-image"
+      />
+    </div>
+    <h3 />
+    <p />
+    <div
+      className="detail-section"
+    >
+      <h4>
+        Supported Mediums
+      </h4>
+    </div>
+    <div
+      className="detail-section"
+    />
+    <div
+      className="detail-section"
+    >
+      <h4>
+        Contact Info
+      </h4>
+      <br />
+    </div>
+    <div
+      className="detail-section"
+    />
+    <p>
+      <a
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        Program Website
+      </a>
+    </p>
+    <button
+      onClick={[Function]}
+    >
+      Bookmark
+    </button>
+  </div>
+</div>
+`;

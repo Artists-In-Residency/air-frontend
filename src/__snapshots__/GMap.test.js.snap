@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`header renders correctly 1`] = `
+<div
+  style={
+    Object {
+      "height": "70vh",
+      "width": "99%",
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "height": "100%",
+      }
+    }
+  />
+</div>
+`;
