@@ -11,6 +11,10 @@
     margin: 15px 0;
 }
 
+#medium {
+    text-transform: capitalize;
+}
+
 .residency-detail {
     display: flex;
     justify-content: center;

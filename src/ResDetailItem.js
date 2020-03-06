@@ -30,7 +30,7 @@ export default class ResDetailItem extends Component {
                     <p>{this.state.residency.description}</p>
                     <div className='detail-section'>
                         <h4>Supported Mediums</h4>
-                        {this.state.residency.art_medium}
+                        <div id='medium'>{this.state.residency.art_medium}</div>
                     </div>
                     <div className='detail-section'>
 
