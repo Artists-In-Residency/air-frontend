@@ -29,7 +29,7 @@ export default class Home extends Component {
     render() {
         return (
             <div>
-                <h3>Residencies I've Contributed</h3>
+                <h2>Residencies I've Contributed</h2>
                 <div className='card-container'>
                 <ul className='residency-list'>
                     {this.state.data.map(item => <ResidencyCard item={item} user={this.props.user} buttonShould={'edit'} key={item.id} />)}

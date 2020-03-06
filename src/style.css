@@ -46,6 +46,12 @@ header a {
   text-decoration: none;
 }
 
+h2 {
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
 #tag-line {
   margin-top: -25px;
   margin-left: 20px;
@@ -115,26 +121,38 @@ label input {
 
 .login-container {
   text-align: center;
+  margin-bottom: 60px;
 }
 
 .signup-container,
 .signin-container,
 .logout-container {
-  max-width: 375px;
+  width: 90%;
+  max-width: 400px;
   margin: 0 auto;
 }
 
 .add-residency-container,
 .edit-residency-container
 {
+  width: 90%;
   max-width: 450px;
-  margin: 0 auto;
+  margin: 0px auto;
+  margin-bottom: 60px;
+
 }
 
 .add-residency-container label,
 .edit-residency-container label
 {
   max-width: 450px;
+}
+
+.add-residency-container button,
+.edit-residency-container button
+{
+  display: block;
+  margin: 20px auto;
 }
 
 .signup-container,
@@ -173,7 +191,18 @@ label input {
 .welcome {
   position: absolute;
   top: 15px;
-  right: 15px
+  right: 15px;
+  text-align: right;
+}
+
+
+@media only screen and (max-width: 600px) {
+  .welcome {
+    max-width: 300px;
+  }
+  .welcome a  {
+    margin: 5px 10px;
+  }
 }
 
 /* BUTTONS */

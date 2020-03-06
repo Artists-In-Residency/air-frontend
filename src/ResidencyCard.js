@@ -73,10 +73,12 @@ export default class ResidencyCard extends Component {
                 <h3><a href={`/listings/${this.props.item.id}`}><div className='card-section-program-name'>{this.props.item.program_name}</div></a></h3>
                 <div className='card-section-description'>
                 <p>{this.capitalize(this.props.item.description)}</p></div>
-                <div className='card-section-mediums'>
-                    <h4>Supported Mediums</h4> 
-                    {this.props.item.art_medium}
-                </div> 
+                {this.props.item.art_medium &&
+                    <div className='card-section-mediums'>
+                        <h4>Supported Mediums</h4> 
+                        {this.props.item.art_medium}
+                    </div> 
+                }
                 {this.props.item.city && 
                     <div className='card-section-city-state-country'>
                         <h4>Location</h4>
@@ -94,9 +96,16 @@ export default class ResidencyCard extends Component {
                 }
                 {/* Conditional button functionality based on passed state */}
                 <div className='bookmark-button'>
-                {this.props.buttonShould === 'delete' && <button onClick={this.handleDelete}>Remove Bookmark</button>}
-                {this.props.buttonShould === 'edit' && <button onClick={this.handleEdit}>Edit</button>}
-                {!this.props.buttonShould && <button onClick={ () => { handleFavorite(this.props.item, this.props.user); this.setState({ buttonText : 'Added!' });} }>{this.state.buttonText}</button>}
+                    {this.props.buttonShould === 'delete' && 
+                        <button onClick={this.handleDelete}>Remove Bookmark</button>}
+                    {this.props.buttonShould === 'edit' && 
+                        <button onClick={this.handleEdit}>Edit</button>}
+                    {!this.props.buttonShould && 
+                        <button onClick={ () => { 
+                            handleFavorite(this.props.item, this.props.user); 
+                            this.setState({ buttonText : 'Added!' });} 
+                            }>{this.state.buttonText}
+                        </button>}
                 </div>
             </li>
         )
