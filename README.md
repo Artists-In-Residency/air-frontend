@@ -1,68 +1,100 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+1. The name of the project: 
 
-## Available Scripts
+PROJECT TITLE: AIR SUPPLY
 
-In the project directory, you can run:
+2. Names of the team members:
 
-### `npm start`
+MIKEY ROMAY, JOSH FORD, NATHAN MARTEL, SCOTT CAMPBELL
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+3. A description of the project:
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+AIR SUPPLY is a project intended to create a resource for artists—artistsof any level and practictioners of any medium—with a living resource for locating information regarding artist residencies (where, when, deadlines, contact information, how to apply, etc), as well as funding opportunities. The goal is to faciliate the pursuit and creation of art and help those interested in obtaining a residency find the information they need.
 
-### `npm test`
+4. The overall problem domain and how the project solves those problems:
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+THE PROBLEM DOMAIN IS that the readiness of this information is highly unavailable and where it is available, it is not often well kept or thorough. THIS IS SOLVED BY our project because we do precisely that. We take a well of data, organize it into a database, and then render it in the UI for easy and universal access.
 
-### `npm run build`
+5. Semantic versioning, beginning with version 1.0.0 and incremented as changes are made:
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- - -
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+6. A list of any libraries, frameworks, or packages that your application requires in order to properly function:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+supergent 
+react-google-maps
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+7. Instructions that the user may need to follow in order to get your application up and running on their own computer:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Intuitive.
+Home will bring you too homepage.
+Login will allow you to login and create user and have the ability to save and add residencies.
+Search will search for any match in the database.
+The drop down narrows options on map to the given state.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+8. Clearly defined API endpoints with sample responses:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+ENDPOINTS ...
+ i. app.get('/api/me/favorites', async(req, res) ... )
+ ii. app.get('/listings/state/dropdown/:id', async(req, res) ... )
+ iii. app.post('/api/me/listings', async(req, res) ... )
+ iv. app.put('/api/me/listings/:listingID', async(req, res) ... )
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+SAMPLE RESPONSES ...
+ i. response will return the full list of residencies that signed-in user has bookmarked
+ ii. response will return only the residencies in the state selected by the user in the dropdown
+ iii. response will create a new residency and add it to the list of searchable residencies in the site.
+ iv. response will update a given residency that that user has created.
 
-### Code Splitting
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+9. Clearly defined database schemas:
 
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+CREATE TABLE users (
+                    id SERIAL PRIMARY KEY,
+                    email VARCHAR(256) NOT NULL,
+                    hash VARCHAR(512) NOT NULL,
+                    display_name VARCHAR(256) NOT NULL,
+                    is_admin BOOLEAN DEFAULT FALSE
+                );           
+CREATE TABLE air_listings (
+                    id SERIAL PRIMARY KEY NOT NULL,
+                    program_name VARCHAR(256),
+                    address VARCHAR(256),
+                    city VARCHAR(256),
+                    state VARCHAR(2),
+                    zip_code VARCHAR(256),
+                    country VARCHAR(256),
+                    continent VARCHAR(256),
+                    phone_num VARCHAR(20), 
+                    email VARCHAR(256),
+                    art_medium VARCHAR(256),
+                    img_url VARCHAR(600),
+                    link_url VARCHAR(600),
+                    description VARCHAR(256),
+                    user_id INTEGER,
+                    is_grant BOOLEAN,
+                    lat VARCHAR(256),
+                    long VARCHAR(256)
+            );
+CREATE TABLE favorites (
+                    id SERIAL PRIMARY KEY NOT NULL,
+                    program_name VARCHAR(256),
+                    address VARCHAR(256),
+                    city VARCHAR(256),
+                    state VARCHAR(2),
+                    zip_code INTEGER,
+                    country VARCHAR(256),
+                    continent VARCHAR(256),
+                    phone_num VARCHAR(20), 
+                    email VARCHAR(256),
+                    art_medium VARCHAR(256),
+                    img_url VARCHAR(600),
+                    link_url VARCHAR(600),
+                    description VARCHAR(256),
+                    user_id INTEGER NOT NULL REFERENCES users(id),
+                    is_grant BOOLEAN,
+                    lat VARCHAR(256),
+                    long VARCHAR(256),
+                    unique (user_id, program_name)
