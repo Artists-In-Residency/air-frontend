@@ -1,15 +1,19 @@
+@import url("https://fonts.googleapis.com/css?family=ABeeZee|Alegreya|Amiri|Archivo+Black|Assistant|Kalam|Neuton|Noto+Serif+JP|Permanent+Marker&display=swap");
 
+* {
+  font-family: 'Noto', sans-serif;
+}
 .devs {
-  text-align: left;
+  text-align: justify;
   display: flex;
   justify-content: center;
-  margin: 50px auto;
+  margin: 10px;
 }
 
 .dev {
   font-size: 15px;
-  width: 15%;
-  margin: 20px;
+  width: 20%;
+  margin: 30px;
 
 }
 
@@ -20,11 +24,26 @@
   margin: 0 auto;
 }
 
+.team-dev img {
+  display: block;
+  width: 2%;
+  border-radius: 90%;
+  margin: 0 auto;
+  margin-bottom: 5px;
+}
+
+.links img{
+  /* display: block;*/
+  width: 9%;
+  border-radius: 90%;
+  margin: 0 auto;
+  margin-bottom: 5px;
+  display: inline-flex;
+  text-align: right;
+}
+
+
 .footer {
-  position:absolute;
-  left:0;
-  bottom:0;
-  right:0;
   background-color: rgb(241, 239, 239);
 }
 
@@ -33,6 +52,18 @@
   padding-bottom: 15px;
   padding-right: 60px;
   padding-left: 90px;
+  margin-top:5px;
+  background-color: rgb(250, 245, 241);
+  font-style: italic;
+}
+
+.supplyPara {
+  width: 50%;
+  text-align: center;
+  margin: 0 auto;
+  font-size: 14px;
+  background-color: rgb(250, 245, 241)
+  
 }
 
 
