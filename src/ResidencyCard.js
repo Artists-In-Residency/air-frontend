@@ -11,10 +11,22 @@ export default class ResidencyCard extends Component {
         this.state = { 
             imageStatus: "", 
             error: false, 
-            buttonText: 'Bookmark', 
+            buttonText: 'Bookmark',
+            placeholderImg: ['../assets/bg1.jpg', '../assets/bg2.jpg', '../assets/bg3.jpg', '../assets/bg4.jpg'] 
         };
       }
     
+    getRandomPlaceholder = () => {
+        const index = Math.floor(Math.random() * this.state.placeholderImg.length);
+        const placeholder = this.state.placeholderImg[index];
+        return placeholder;
+    }
+
+    capitalize = (str) => {
+        if (typeof str !== 'string') return ''
+        return str.charAt(0).toUpperCase() + str.slice(1)
+      }
+
     handleImageLoaded() {
         this.setState({ imageStatus: "", error: false });
     }
@@ -40,31 +52,29 @@ export default class ResidencyCard extends Component {
     handleEdit = async () => {
         window.location=(`/edit/${this.props.item.id}`);
     }
-
-    // renderButtonSwitch (buttonShould) {
-    //     switch (buttonShould) {
-    //         case 'delete': return <button onClick={this.handleDelete}>Remove from Bookmarks</button>;
-    //         case 'edit': { this.setState({buttonText: 'Edit'}); 
-    //                         return (<button onClick={this.handleEdit}>{this.state.buttonText}</button>);
-    //                         }
-    //         default: return (<button onClick={() => { handleFavorite(this.props.item, this.props.user); this.setState({ buttonText : 'Added!' }) }}>{this.state.buttonText}</button>) 
-    //     }
-    // }
      
 
     render() {
+        let source;
+        if (this.state.error || !this.props.item.img_url) {
+            source = this.getRandomPlaceholder();
+        } else {
+            source = this.props.item.img_url;
+        } 
         return (
             <li className='residency-card'>
                 <div className='image-container'>
                     <a href={`/listings/${this.props.item.id}`}>
-                        <img src={this.state.error || this.props.item.img_url ? this.props.item.img_url : 'http://placekitten.com/100/100'} onLoad={this.handleImageLoaded.bind(this)} onError={this.handleImageError.bind(this)} alt='pic'/>
+                    {console.log('returning placeholder 2', source) }
+
+                        <img src={source} onLoad={this.handleImageLoaded.bind(this)} onError={this.handleImageError.bind(this)} alt='pic'/>
                                 {this.state.imageStatus}
                     </a>
                 </div>
                
                 <h3><a href={`/listings/${this.props.item.id}`}><div className='card-section-program-name'>{this.props.item.program_name}</div></a></h3>
                 <div className='card-section-description'>
-                <p>{this.props.item.description}</p></div>
+                <p>{this.capitalize(this.props.item.description)}</p></div>
                 <div className='card-section-mediums'>
                     <h4>Supported Mediums</h4> 
                     {this.props.item.art_medium}
