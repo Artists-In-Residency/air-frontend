@@ -8,7 +8,7 @@ export default class About extends Component {
         <main>
           <div className='main-container'>
             <div className='devs'>
-              <h1 className='h1'>Air Supply</h1>
+              <h1 className='h1'>airSupply</h1>
             </div>
 
             <div className='devs'>
