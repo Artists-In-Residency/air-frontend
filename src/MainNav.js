@@ -1,18 +1,14 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
-import Search from './Search.js';
-import header from './header.css';
 
 export default class MainNav extends Component {
     render() {
         return (
                 <nav>
-                    <Link to='/'>Home</Link>
+                    <Link to='/' onClick={() => window.location.reload()} >Home</Link>
                     <Link to='/tips'>Tips</Link>
                     <Link to='/about'>About</Link>
                     {this.props.user && <Link to='/login'>Login</Link>}
-                    {/* <Link to='/admin/listings'>Listing Admin</Link>
-                    <Link to='/admin/users'>User Admin</Link> */}
                     {this.props.user &&
                     <div className='welcome'>
                         <Link to='/bookmarks'>Bookmarks</Link>
