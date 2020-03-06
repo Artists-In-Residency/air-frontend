@@ -25,7 +25,7 @@ export default class ResidencyCard extends Component {
     capitalize = (str) => {
         if (typeof str !== 'string') return ''
         return str.charAt(0).toUpperCase() + str.slice(1)
-      }
+    }
 
     handleImageLoaded() {
         this.setState({ imageStatus: "", error: false });
@@ -65,8 +65,6 @@ export default class ResidencyCard extends Component {
             <li className='residency-card'>
                 <div className='image-container'>
                     <a href={`/listings/${this.props.item.id}`}>
-                    {console.log('returning placeholder 2', source) }
-
                         <img src={source} onLoad={this.handleImageLoaded.bind(this)} onError={this.handleImageError.bind(this)} alt='pic'/>
                                 {this.state.imageStatus}
                     </a>
