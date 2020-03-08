@@ -131,11 +131,14 @@ div.logout-container {
   max-width: 400px;
   margin: 40px auto;
   padding-bottom: 40px;
+}
+
+div.signin-container {
   border-bottom: 1px solid black;
 }
 
-div.signup-container {
-  border-bottom: none;
+.login-container button {
+  margin: 20px auto;
 }
 
 .add-residency-container,

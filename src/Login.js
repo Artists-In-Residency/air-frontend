@@ -78,6 +78,7 @@ export default class Login extends Component {
                     <button onClick={this.handleLogout}>Logout</button>
                 </div>
                 }
+                {!isLoggedIn && <> 
                 <form onSubmit={this.handleLogin}>
                     <div className='signin-container'>
                         <h2>Log In</h2>
@@ -105,6 +106,7 @@ export default class Login extends Component {
                         <button>Sign Up</button>
                     </div>
                 </form>
+                </>}
             </div>
         )
     }
