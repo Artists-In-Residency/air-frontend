@@ -5,10 +5,9 @@ import ResidencyCard from './ResidencyCard';
 import './residency-card.css';
 
 
-export default class Home extends Component {
+export default class MyResidencies extends Component {
     state = {
         data: [],
-        user: {}
    }
 
     async componentDidMount() {
@@ -16,7 +15,6 @@ export default class Home extends Component {
         await request.get(URL)
             .set('Authorization', this.props.user.token)
             .then((results) => {
-                // No body is returned from put
                 console.log('Get results', results);
                 this.setState({ data: results.body });
             })
@@ -32,7 +30,7 @@ export default class Home extends Component {
                 <h2>Residencies I've Contributed</h2>
                 <div className='card-container'>
                 <ul className='residency-list'>
-                    {this.state.data.map(item => <ResidencyCard item={item} user={this.props.user} buttonShould={'edit'} key={item.id} />)}
+                    {this.state.data.map(item => <ResidencyCard item={item} user={this.props.user} buttonShould={['edit', 'delete']} key={item.id} />)}
                 </ul>
                 </div>
             </div>

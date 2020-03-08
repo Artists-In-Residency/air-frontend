@@ -9,6 +9,8 @@ export default class ResidencyForm extends Component {
             city: this.props.city,
             state: this.props.state,
             zip_code: this.props.zip_code,
+            country: this.props.country,
+            continent: this.props.continent,
             phone_num: this.props.phone_num,
             email: this.props.email,
             art_medium: this.props.art_medium,
@@ -25,7 +27,7 @@ export default class ResidencyForm extends Component {
                 <label>Program Name
                     <input onChange={(e) => this.setState({ program_name: e.target.value })} value={this.state.program_name} />                        
                 </label>
-                { this.props.edit &&
+                { (this.props.edit && this.props.img_url) &&
                     <div className='img_url-container'>
                         <img src={this.props.img_url} alt={this.props.program_name} />
                     </div>
@@ -102,12 +104,12 @@ export default class ResidencyForm extends Component {
                 <label>Zip
                     <input type='number' onChange={(e) => this.setState({ zip_code: Number(e.target.value) })} value={this.state.zip_code} />
                 </label>
+                <label>Country
+                    <input onChange={(e) => this.setState({ country: (e.target.value) })} value={this.state.country} />
+                </label>
                 <label>Art medium
                     <input onChange={(e) => this.setState({ art_medium: e.target.value })} value={this.state.art_medium} />
                 </label>
-                {/* <label>Image
-                    <input onChange={(e) => this.setState({ img_url: e.target.value })} value={this.state.img_url} />
-                </label> */}
                 {/* <label>Is this a grant?
                     <input type='radio' onChange={(e) => this.setState({ is_grant: e.target.value })} value="Yes" checked={this.state.is_grant === 'Yes'} />Yes
                     <input type='radio' onChange={(e) => this.setState({ is_grant: e.target.value })} value="No" checked={this.state.is_grant === 'No'}s />No

@@ -75,8 +75,6 @@
     background-color: #bef1fe88;
 }
 
-
-   
 .card-section {
     margin: 15px 0;
 }
@@ -102,14 +100,11 @@
     width: 100%;
 }
 
-.residency-card button {
-    margin-left: 0;
-}
-
 .residency-card .image-container {
     margin: -15px;
     margin-bottom: 15px;
-    height: 150px;
+    /* Set height equal to a 3:2 ratio (common image size), based on 250px as the card width) */
+    height: calc(250px * .67);
     overflow: hidden;
     text-align: center;
 }

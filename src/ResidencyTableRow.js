@@ -20,8 +20,8 @@ export default class ResidencyTableRow extends Component {
                 <td>{this.props.item.phone_num}</td>
                 <td>{this.props.item.email}</td>
                 <td>{this.props.item.is_grant}</td>
-                <td><a href={`/edit/${this.props.item.id}`}>Edit</a></td>
-                <td><a href='#' onClick={() => this.handleDeleteResidency(this.props.item.id)}>Delete</a></td>
+                <td><button onClick={`window.location.href = '/edit/${this.props.item.id}'`}>Edit</button></td>
+                <td><button onClick={() => this.handleDeleteResidency(this.props.item.id)}>Delete</button></td>
             </tr>
         )
     }

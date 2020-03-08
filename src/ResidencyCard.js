@@ -35,13 +35,27 @@ export default class ResidencyCard extends Component {
         this.setState({ imageStatus: "", error: true });
     }
 
-    handleDelete = async () => {
+    handleRemove = async () => {
         const URL = `${process.env.REACT_APP_DB_URL}/api/me/favorites/${this.props.item.id}`;
         await request.delete(URL)
             .set('Authorization', this.props.user.token)
             .then((results) => {
                 console.log('Delete results', results);
                 window.location=('/bookmarks');
+            })
+            .catch((err) => { 
+                alert(err); 
+                console.log(err);
+            })       
+    }
+
+    handleDelete = async () => {
+        const URL = `${process.env.REACT_APP_DB_URL}/api/me/listings/${this.props.item.id}`;
+        await request.delete(URL)
+            .set('Authorization', this.props.user.token)
+            .then((results) => {
+                console.log('Delete results', results);
+                window.location=('/my/listings');
             })
             .catch((err) => { 
                 alert(err); 
@@ -61,6 +75,12 @@ export default class ResidencyCard extends Component {
         } else {
             source = this.props.item.img_url;
         } 
+
+        let isLoggedIn = false;
+        if ((this.props.user) && Object.keys(this.props.user).length !== 0) {
+            isLoggedIn = true;
+        }    
+
         return (
             <li className='residency-card'>
                 <div className='image-container'>
@@ -95,11 +115,17 @@ export default class ResidencyCard extends Component {
                     </div>
                 }
                 {/* Conditional button functionality based on passed state */}
+                {isLoggedIn &&
                 <div className='bookmark-button'>
-                    {this.props.buttonShould === 'delete' && 
-                        <button onClick={this.handleDelete}>Remove Bookmark</button>}
-                    {this.props.buttonShould === 'edit' && 
+                    {this.props.buttonShould && 
+                        this.props.buttonShould.includes('remove') && 
+                            <button onClick={this.handleRemove}>Remove Bookmark</button>}
+                    {this.props.buttonShould && 
+                        this.props.buttonShould.includes('edit') && 
                         <button onClick={this.handleEdit}>Edit</button>}
+                    {this.props.buttonShould && 
+                        this.props.buttonShould.includes('delete') && 
+                            <button onClick={this.handleDelete}>Delete</button>}
                     {!this.props.buttonShould && 
                         <button onClick={ () => { 
                             handleFavorite(this.props.item, this.props.user); 
@@ -107,6 +133,7 @@ export default class ResidencyCard extends Component {
                             }>{this.state.buttonText}
                         </button>}
                 </div>
+                }
             </li>
         )
     }

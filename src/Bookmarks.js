@@ -27,7 +27,7 @@ export default class Bookmarks extends Component {
                 <h2>My Bookmarks</h2>
                 <div className='card-container'>
                 <ul className='residency-list'>
-                    {this.state.data.map(item => <ResidencyCard item={item} user={this.props.user} buttonShould={'delete'} key={item.id} />)}
+                    {this.state.data.map(item => <ResidencyCard item={item} user={this.props.user} buttonShould={['remove']} key={item.id} />)}
                 </ul>
                 </div>
             </div>

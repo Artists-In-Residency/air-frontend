@@ -10,6 +10,8 @@ export default class AddResidency extends Component {
             city: '',
             state: '',
             zip_code: '',
+            country: '',
+            continent: '',
             phone_num: '',
             email: '',
             art_medium: '',

@@ -33,7 +33,7 @@ export default class EditResidency extends Component {
             .then((result) => {
                 // No body is returned from put
                 console.log('Put result', result);
-                this.props.history.push('/');
+                this.props.history.push('/my/listings');
             })
             .catch((err) => { 
                 alert(err); 

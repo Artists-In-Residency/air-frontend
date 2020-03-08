@@ -23,25 +23,23 @@ import './style.css';
 
 export default class App extends Component {
 
-state = {
-    user: [],
-    username: ''
-}
-
-// Put user into state and in persistence on login via callback
-setUser = (userFromLogin) => {
-  localStorage.setItem('user', JSON.stringify(userFromLogin));
-  this.setState({ user: userFromLogin });
-}
-
-
-// Put user into state from localStorage first for subsequent props passing
-componentWillMount = () => {
-  const userFromLocalStorage = getUserFromLocalStorage();
-  if (userFromLocalStorage) {
-    this.setState({ user: userFromLocalStorage });
+  state = {
+    user: {}
   }
-}
+
+  // Put user into state and in persistence on login via callback
+  setUser = (userFromLogin) => {
+    localStorage.setItem('user', JSON.stringify(userFromLogin));
+    this.setState({ user: userFromLogin });
+  }
+
+  // Put user into state from localStorage first for subsequent props passing
+  componentWillMount = () => {
+    const userFromLocalStorage = getUserFromLocalStorage();
+    if (Object.keys(userFromLocalStorage).length !== 0) {
+      this.setState({ user: userFromLocalStorage });
+    }
+  }
 
   render() {
 
@@ -53,9 +51,9 @@ componentWillMount = () => {
           <PrivateRoute exact path='/bookmarks' component={Bookmarks} user={this.state.user}/>
           <PrivateRoute exact path='/add' component={AddResidency} user={this.state.user} />
           <PrivateRoute exact path='/edit/:id' component={EditResidency} user={this.state.user} />
-          <Route exact path='/search' component={Search} user={this.state.user}/>
           <PrivateRoute exact path='/my/listings/' component={MyResidencies} user={this.state.user} />
           <Route exact path='/login' render={(props) => <Login {...props} setUser={ this.setUser } user={this.state.user } />} />
+          <Route exact path='/search' component={Search} user={this.state.user}/>
           <Route exact path='/about' component={About} />
           <Route exact path='/tips' component={Tips} />
           <Route exact path='/map' component={GMap} />

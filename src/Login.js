@@ -52,7 +52,7 @@ export default class Login extends Component {
 
     handleLogout = () => {
         localStorage.clear();
-        this.props.setUser([]);
+        this.props.setUser({});
         this.props.history.push('/');
     }
 
@@ -64,11 +64,23 @@ export default class Login extends Component {
 
     
     render() {
+
+        let isLoggedIn = false;
+        if ((this.props.user) && Object.keys(this.props.user).length !== 0) {
+            isLoggedIn = true;
+        }    
+
         return (
             <div className='login-container'>
+                {isLoggedIn && 
+                <div className='logout-container'>
+                    <h2>Logout</h2>
+                    <button onClick={this.handleLogout}>Logout</button>
+                </div>
+                }
                 <form onSubmit={this.handleLogin}>
                     <div className='signin-container'>
-                    <h2>Log In</h2>
+                        <h2>Log In</h2>
                         <label>Email
                             <input onChange={(e) => this.setState({ emailLogin: e.target.value })} value={this.state.emailLogin} />
                         </label>
@@ -80,7 +92,7 @@ export default class Login extends Component {
                 </form>
                 <form onSubmit={this.handleSignUp}>
                     <div className='signup-container'>
-                    <h2>Sign Up</h2>
+                        <h2>Sign Up</h2>
                         <label>Email
                             <input onChange={(e) => this.setState({ emailSignUp: e.target.value })} value={this.state.emailSignUp} />
                         </label>
@@ -93,10 +105,6 @@ export default class Login extends Component {
                         <button>Sign Up</button>
                     </div>
                 </form>
-                <div className='logout-container'>
-                <h2>Logout</h2>
-                    <button onClick={this.handleLogout}>Logout</button>
-                </div>
             </div>
         )
     }

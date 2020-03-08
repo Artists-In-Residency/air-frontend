@@ -3,8 +3,6 @@ import request from 'superagent'
 import { handleFavorite } from './api.js'
 import './residency-card.css';
 
-const user = JSON.parse(window.localStorage.getItem('user'));
-
 export default class ResDetailItem extends Component {
 
     state = {
