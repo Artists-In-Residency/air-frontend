@@ -9,6 +9,7 @@ export default class Bookmarks extends Component {
    }
 
     async componentDidMount() {
+        // why not use a function in api.js for this?
         const URL = `${process.env.REACT_APP_DB_URL}/api/me/favorites`;
         await request.get(URL)
             .set('Authorization', this.props.user.token)

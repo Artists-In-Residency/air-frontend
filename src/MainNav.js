@@ -14,7 +14,11 @@ export default class MainNav extends Component {
                         <Link to='/bookmarks'>Bookmarks</Link>
                         <Link to='/add'>Add a Residency</Link>
                         <Link to='/my/listings'>My Residencies</Link>
-                        <Link to='/login'>{this.props.user.displayName ? 'Hello ' + this.props.user.displayName + '!' : '' }</Link>
+                        <Link to='/login'>
+                        {this.props.user.displayName 
+                            ? `Hello ${this.props.user.displayName}!` 
+                            : '' }
+                        </Link>
                     </div>}
                 </nav>
         )

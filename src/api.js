@@ -1,6 +1,7 @@
 import request from 'superagent';
 
 export const getFavorites = async () => {
+    // this environment variable name is misleading--it's an API not a DB you're pointing to
     const URL = `${process.env.REACT_APP_DB_URL}/listings`;
     console.log('Requesting favorites from', URL);
     const result = await request.get(URL);
@@ -89,6 +90,7 @@ export const handleFavorite = async (item, user) => {
     await request
         .post(URL, newObj)
         .set('Authorization', user.token)
+        // i would have stuck to async / await here and used a try/catch
         .then((result) => {
             console.log('handleFavorite result', result);
         })

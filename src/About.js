@@ -3,6 +3,7 @@ import './about.css';
 
 export default class About extends Component {
   render() {
+    // for DRYness, i would have liked to see this with the data represented as a hard-coded array to dynamically render these blurbs
     return (
       <>
         <main>

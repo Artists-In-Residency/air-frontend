@@ -12,6 +12,7 @@ export default class ResidencyCard extends Component {
             imageStatus: "", 
             error: false, 
             buttonText: 'Bookmark',
+            // cooool array...but it needs a plural name
             placeholderImg: ['../assets/bg1.jpg', '../assets/bg2.jpg', '../assets/bg3.jpg', '../assets/bg4.jpg'] 
         };
       }
@@ -50,6 +51,7 @@ export default class ResidencyCard extends Component {
     }
 
     handleEdit = async () => {
+        // this should user props.history.push, and the component should get a withRouter wrapper
         window.location=(`/edit/${this.props.item.id}`);
     }
      
@@ -103,6 +105,7 @@ export default class ResidencyCard extends Component {
                     {!this.props.buttonShould && 
                         <button onClick={ () => { 
                             handleFavorite(this.props.item, this.props.user); 
+                            // kinda seems like this setState should happen in the handleFavorite method. . .
                             this.setState({ buttonText : 'Added!' });} 
                             }>{this.state.buttonText}
                         </button>}

@@ -32,6 +32,7 @@ export default class Home extends Component {
                 <h2>Residencies I've Contributed</h2>
                 <div className='card-container'>
                 <ul className='residency-list'>
+                // three places in your app, you map over arrays and return ResidencyCards. Seems like a good use case for a component
                     {this.state.data.map(item => <ResidencyCard item={item} user={this.props.user} buttonShould={'edit'} key={item.id} />)}
                 </ul>
                 </div>

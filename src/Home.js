@@ -36,6 +36,7 @@ export default class Home extends Component {
     handleSearch = (input) => async (e) => {
         e.preventDefault();
         this.setState({ loading: true });
+        // seems like this should be in api.js
         const data = await request.get(`${process.env.REACT_APP_DB_URL}/search?search=${input}`)
         this.setState({
             resState: data.body,
@@ -45,6 +46,7 @@ export default class Home extends Component {
     }
 
     handleState = async (stateValue) => {
+        // seems like this should be in api.js
         const data = await request.get(`${process.env.REACT_APP_DB_URL}/listings/state/${stateValue}`)
         this.setState({
             resState: data.body,

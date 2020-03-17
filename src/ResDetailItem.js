@@ -44,6 +44,7 @@ export default class ResDetailItem extends Component {
                     </div>
                     <div className='detail-section'>
                         <h4>Contact Info</h4>
+                        // these sanity checks seem unnecessary or insufficient, depending on whether `residency` is dependable--these would all still break if 'this.state.residency' is falsey
                         {this.state.residency.phone_num &&<> {this.state.residency.phone_num}</>} 
                         <br />
                         {this.state.residency.email &&<> {this.state.residency.email}</>} 

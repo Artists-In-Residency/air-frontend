@@ -14,6 +14,7 @@ export default class EditResidency extends Component {
     }
     
     getResidency = async () => {
+        // seems like this should be in api.js with the rest of your async calls
         const URL = `${process.env.REACT_APP_DB_URL}/listings/${this.props.match.params.id}`;
         console.log('Requesting residency with ID of', this.props.match.params.id, 'from', URL);
         const result = await request.get(URL);
@@ -25,6 +26,7 @@ export default class EditResidency extends Component {
     // Form component passes back state. Function also needs event. So we need a function to eat a function.
     handleEditResidency = (residency) => async (e) => {
         e.preventDefault();
+        // seems like this should be in api.js with the rest of your async calls
         const URL=`${process.env.REACT_APP_DB_URL}/api/me/admin/listings/${this.props.match.params.id}`;        
         console.log('Putting via URL: ', URL);
         console.log('Putting: ', residency);

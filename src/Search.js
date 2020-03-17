@@ -26,7 +26,8 @@ export default class Search extends Component {
                             onChange={(e) => this.props.handleState(e.target.value)}
                         >
                             <option value="" selected disabled hidden>--</option>
-                            <option value="AL">AL</option>
+                           
+                           // this dropdown should be componentized, since you reuse it <option value="AL">AL</option>
                             <option value="AK">AK</option>
                             <option value="AZ">AZ</option>
                             <option value="AR">AR</option>

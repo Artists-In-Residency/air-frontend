@@ -17,6 +17,7 @@ export default class Home extends Component {
     render() {
         return (
             <div>
+            // hmm, starting to look like you should have a Table component
                 <table className='residency-table'>
                     <thead>
                         <tr>

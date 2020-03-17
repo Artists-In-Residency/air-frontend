@@ -1,28 +1,29 @@
+// nice modularity!
 export default [
     {
-        "stylers": [
+        stylers: [
             {
-                "hue": "#61dafb"
+                hue: '#61dafb'
             },
             {
-                "saturation": 89
+                saturation: 89
             }
         ]
     },
     {
-        "featureType": "water",
-        "stylers": [
+        featureType: 'water',
+        stylers: [
             {
-                "color": "#ffffff"
+                color: '#ffffff'
             }
         ]
     },
     {
-        "featureType": "administrative.country",
-        "elementType": "labels",
-        "stylers": [
+        featureType: 'administrative.country',
+        elementType: 'labels',
+        stylers: [
             {
-                "visibility": "off"
+                visibility: 'off'
             }
         ]
     }

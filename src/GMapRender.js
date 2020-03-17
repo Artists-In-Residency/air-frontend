@@ -32,10 +32,6 @@ export default class Map extends React.Component{
       this.setState({ imageStatus: "", error: true });
     }
 
-    async componentDidMount() {
-      console.log('>>>>>>>>>MOUNTING<<<<<<<<<')
-    }
-
     setSelected = (selected) =>{
         this.setState({selected})
     }
@@ -49,10 +45,6 @@ export default class Map extends React.Component{
                   lat:37.9283459, 
                   lng:-94.5794797
                 }}
-                // center={{
-                //   lat:this.props.resCenter.lat, 
-                //   lng:this.props.resCenter.lng
-                // }}
               defaultOptions={{styles: GMapStyle}} 
             >
               {this.props.resListings.map((res =>
@@ -90,8 +82,23 @@ export default class Map extends React.Component{
                     <p className="infoDescription">{this.capitalize(this.state.selected.description)}</p>
                   
                     <div>
-                    <p className="infoCity">{this.state.selected.address}<br></br>
-                        {this.state.selected.city}{this.state.selected.state &&<> {this.state.selected.state}</>} {this.state.selected.zip_code &&<> {this.state.selected.zip_code}</>}{this.state.selected.country &&<> - {this.state.selected.country}</>} - <a href={this.state.selected.link_url} target="_blank" rel="noopener noreferrer">Website</a></p>
+                    <p className="infoCity">
+                    {this.state.selected.address}
+                    <br/>
+
+                    {this.state.selected.city}
+
+                    // sanity checking shouldn't be necessary here, unless `selected` might be falsey
+                    {<> {this.state.selected.state}</>} 
+                    {<> {this.state.selected.zip_code}</>}
+                    {<> - {this.state.selected.country}</>}
+                        - <a 
+                            href={this.state.selected.link_url} 
+                            target="_blank" 
+                            rel="noopener noreferrer">
+                            Website
+                        </a>
+                    </p>
                   </div>
                   
                 </div>

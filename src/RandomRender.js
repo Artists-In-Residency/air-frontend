@@ -1,3 +1,5 @@
+// seems like this file isn't being used? dead code confuses future devs and should be deleted
+
 import React, { Component } from 'react'
 import ResidencyCard from './ResidencyCard.js'
 
@@ -17,8 +19,8 @@ const randomRezRender = array => {
 
 export default class RandomRender extends Component {
 
-randomRezRender(stateArray)
 
+randomRezRender(stateArray)
 
   class RecommendedPosts extends React.Component {
     render() {

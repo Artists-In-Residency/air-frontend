@@ -38,6 +38,7 @@ setUser = (userFromLogin) => {
 // Put user into state from localStorage first for subsequent props passing
 componentWillMount = () => {
   const userFromLocalStorage = getUserFromLocalStorage();
+  // nice sanity check
   if (userFromLocalStorage) {
     this.setState({ user: userFromLocalStorage });
   }

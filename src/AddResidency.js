@@ -38,6 +38,7 @@ export default class AddResidency extends Component {
             .set('Authorization', this.props.user.token);
         
         //insert new key/value pair into residency object from newly fetched data
+        // deep drilling like this makes me nervous! mapResult.body.results && mapResult.body.results[0] && mapResult.body.results[0]. geometry, etc is preferred here 
         residency.lat = mapResult.body.results[0].geometry.location.lat;
         residency.long = mapResult.body.results[0].geometry.location.lng;
       

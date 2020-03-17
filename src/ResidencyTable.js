@@ -33,6 +33,7 @@ export default class Home extends Component {
                         </tr>                        
                     </thead>
                     <tbody>
+                        // nice row generatin'
                         {this.state.data.map(item => <ResidencyTableRow item={item} key={item.id} />)}
                     </tbody>                        
                 </table>

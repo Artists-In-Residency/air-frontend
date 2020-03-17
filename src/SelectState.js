@@ -10,6 +10,7 @@ export default class StateSelect extends Component {
   };
   
   componentDidMount() {
+    // why the fetch api all of a sudden? and the .then chains instead of async/await?
     fetch(`${process.env.REACT_APP_DB_URL}/listings/state/dropdown/show`)
       .then(response => {
         return response.json();
