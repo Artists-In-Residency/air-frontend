@@ -18,8 +18,9 @@ put - '/api/me/listings/:listingID'
 
 ### database schema:  
   
-```CREATE TABLE users (  
-                     id SERIAL PRIMARY KEY,  
+```
+CREATE TABLE users (  
+                    id SERIAL PRIMARY KEY,  
                     email VARCHAR(256) NOT NULL,  
                     hash VARCHAR(512) NOT NULL,  
                     display_name VARCHAR(256) NOT NULL,  
@@ -64,7 +65,8 @@ CREATE TABLE favorites (
                     is_grant BOOLEAN,  
                     lat VARCHAR(256),  
                     long VARCHAR(256),  
-                    unique (user_id, program_name)```  
+                    unique (user_id, program_name)
+                    ```  
 
 ### created by:
 Mikey Romay, Josh Ford, Nathan Martel, Scott Campbell
