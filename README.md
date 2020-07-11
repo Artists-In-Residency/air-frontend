@@ -1,49 +1,22 @@
 # airSupply
-### created by:
-Mikey Romay, Josh Ford, Nathan Martel, Scott Campbell
 
 airSupply is a project intended to create a resource for artists—artistsof any level and practictioners of any medium—with a living resource for locating information regarding artist residencies (where, when, deadlines, contact information, how to apply, etc), as well as funding opportunities. The goal is to faciliate the pursuit and creation of art and help those interested in obtaining a residency find the information they need.
 
-4. The overall problem domain and how the project solves those problems:
-
-THE PROBLEM DOMAIN IS that the readiness of this information is highly unavailable and where it is available, it is not often well kept or thorough. THIS IS SOLVED BY our project because we do precisely that. We take a well of data, organize it into a database, and then render it in the UI for easy and universal access.
-
-5. Semantic versioning, beginning with version 1.0.0 and incremented as changes are made:
-
-- - -
-
-6. A list of any libraries, frameworks, or packages that your application requires in order to properly function:
-
-supergent 
-react-google-maps
+### tech:
+React | Express | PostgreSQL | Node.js | Google Maps API
 
 
+### to install:
+```npm i```
+```npm run start```
 
-7. Instructions that the user may need to follow in order to get your application up and running on their own computer:
+### backend endpoints:
+ i. get - '/api/me/favorites'
+ ii. get - '/listings/state/dropdown/:id'
+ iii. post - '/api/me/listings'
+ iv. put - '/api/me/listings/:listingID'
 
-Intuitive.
-Home will bring you too homepage.
-Login will allow you to login and create user and have the ability to save and add residencies.
-Search will search for any match in the database.
-The drop down narrows options on map to the given state.
-
-
-8. Clearly defined API endpoints with sample responses:
-
-ENDPOINTS ...
- i. app.get('/api/me/favorites', async(req, res) ... )
- ii. app.get('/listings/state/dropdown/:id', async(req, res) ... )
- iii. app.post('/api/me/listings', async(req, res) ... )
- iv. app.put('/api/me/listings/:listingID', async(req, res) ... )
-
-SAMPLE RESPONSES ...
- i. response will return the full list of residencies that signed-in user has bookmarked
- ii. response will return only the residencies in the state selected by the user in the dropdown
- iii. response will create a new residency and add it to the list of searchable residencies in the site.
- iv. response will update a given residency that that user has created.
-
-
-9. Clearly defined database schemas:
+### database schema:
 
 CREATE TABLE users (
                     id SERIAL PRIMARY KEY,
@@ -92,3 +65,6 @@ CREATE TABLE favorites (
                     lat VARCHAR(256),
                     long VARCHAR(256),
                     unique (user_id, program_name)
+
+### created by:
+Mikey Romay, Josh Ford, Nathan Martel, Scott Campbell
