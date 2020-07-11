@@ -16,6 +16,9 @@ get - '/listings/state/dropdown/:id'
 post - '/api/me/listings'  
 put - '/api/me/listings/:listingID'  
 
+### devs:
+Mikey Romay, Josh Ford, Nathan Martel, Scott Campbell
+
 ### database schema:  
   
 ```
@@ -66,7 +69,3 @@ CREATE TABLE favorites (
                     lat VARCHAR(256),  
                     long VARCHAR(256),  
                     unique (user_id, program_name)
-                    ```  
-
-### created by:
-Mikey Romay, Josh Ford, Nathan Martel, Scott Campbell
