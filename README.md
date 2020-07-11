@@ -7,17 +7,17 @@ React | Express | PostgreSQL | Node.js | Google Maps API
 
 
 ### to install:
-```npm i```
+```npm i```  
 ```npm run start```
 
 ### backend endpoints:
- i. get - '/api/me/favorites'
- ii. get - '/listings/state/dropdown/:id'
- iii. post - '/api/me/listings'
- iv. put - '/api/me/listings/:listingID'
+get - '/api/me/favorites'  
+get - '/listings/state/dropdown/:id'  
+post - '/api/me/listings'  
+put - '/api/me/listings/:listingID'  
 
-### database schema:
-
+### database schema:  
+  
 CREATE TABLE users (
                     id SERIAL PRIMARY KEY,
                     email VARCHAR(256) NOT NULL,
